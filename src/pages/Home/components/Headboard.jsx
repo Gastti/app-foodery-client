@@ -25,7 +25,7 @@ const Container = styled.div`
     & > h1 {
     font-size: 4rem;
     font-weight: 500;
-    margin: 30px 0px;
+    margin-bottom: 30px;
 
     @media ${devices.laptopMax} {
         font-size: 3.6rem;
@@ -49,15 +49,16 @@ const Container = styled.div`
         font-weight: 400;
         padding-left: 3px;
         opacity: 0.5;
+        margin-bottom: 30px;
     }
 `;
 
 export default function Headboard() {
     return (
         <Container>
-            <DiscountButton />
             <h1>The most delicious <span>Food</span> and the fastest <span>Delivery</span>.</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+            <DiscountButton />
         </Container>
     )
 }
