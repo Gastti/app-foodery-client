@@ -7,13 +7,11 @@ export const FlexContainer = styled.div`
   flex-flow: ${props => props.column ? "column wrap" : "row wrap"};
   align-items: center;
   justify-content: flex-end;
-  margin-bottom: 100px;
 
   & > img {
     position: absolute;
     left: 0;
     width: calc(100% - 650px);
-    margin-top: 30px;
     margin-right: 50px;
     z-index: 0;
 
