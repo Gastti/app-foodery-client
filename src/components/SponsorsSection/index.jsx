@@ -49,10 +49,10 @@ const Logo = styled.div`
 
 export default function SponsorsSection() {
     const [brands, setBrands] = React.useState([
-        { name: '', logo: YourLogo },
-        { name: '', logo: YourLogo },
-        { name: '', logo: YourLogo },
-        { name: '', logo: YourLogo }
+        { name: 'Brand 1', logo: YourLogo },
+        { name: 'Brand 2', logo: YourLogo },
+        { name: 'Brand 3', logo: YourLogo },
+        { name: 'Brand 4', logo: YourLogo }
     ])
 
     return (

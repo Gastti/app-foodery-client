@@ -42,10 +42,10 @@ const Container = styled.div`
     }
 `;
 
-export default function DiscountButton() {
+export default function DiscountButton({ children }) {
     return (
         <Container>
-            <span>Get 20% discount.</span>
+            <span>{children}</span>
             <div>{<ArrowRightAltIcon fontSize="large" />}</div>
         </Container>
     )
