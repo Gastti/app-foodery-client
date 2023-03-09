@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 
 const Container = styled.div`
@@ -16,20 +16,21 @@ const Container = styled.div`
     padding-left: 25px;
     border-radius: 7px;
     cursor: pointer;
+    position: relative;
 
-    & > span {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: calc(100% - 140px);
-        text-align: center;
+    &:hover > div {
+        // Animation
+    }
+
+    &:hover > span {
+        // Animation
     }
 
     & > svg {
         font-size: 2rem;
     }
 
-    & > div{
+    & > div {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -44,7 +45,7 @@ const Container = styled.div`
 export default function DiscountButton() {
     return (
         <Container>
-            Get 20% discount.
+            <span>Get 20% discount.</span>
             <div>{<ArrowRightAltIcon fontSize="large" />}</div>
         </Container>
     )
