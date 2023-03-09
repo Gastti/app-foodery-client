@@ -9,7 +9,7 @@ const StyledContainer = styled.div`
 
 const StyledContent = styled.div`
     margin: 0 auto;
-    padding: 25px;
+    padding: ${props => props.padding ? "100px 25px" : "25px"};
     box-sizing: border-box;
     overflow: hidden;
     position: relative;
@@ -26,10 +26,10 @@ const StyledContent = styled.div`
     }
 `;
 
-export default function Container({ children, primary }) {
+export default function Container({ children, primary, style, padding }) {
     return (
-        <StyledContainer primary={primary}>
-            <StyledContent>
+        <StyledContainer primary={primary} style={style}>
+            <StyledContent padding={padding}>
                 {children}
             </StyledContent>
         </StyledContainer>

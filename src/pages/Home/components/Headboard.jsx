@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import DiscountButton from "../../../components/DiscountButton"
 import { devices } from "../../../config/devices";
+import { headboardContent } from "../HomeContent";
 
 const Container = styled.div`
     display: flex;
@@ -56,9 +57,9 @@ const Container = styled.div`
 export default function Headboard() {
     return (
         <Container>
-            <h1>The most delicious <span>Food</span> and the fastest <span>Delivery</span>.</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
-            <DiscountButton />
+            <h1 dangerouslySetInnerHTML={{ __html: headboardContent.title }}></h1>
+            <p>{headboardContent.paragraph}</p>
+            <DiscountButton>{headboardContent.discount}</DiscountButton>
         </Container>
     )
 }
