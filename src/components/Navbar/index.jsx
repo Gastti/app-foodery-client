@@ -74,6 +74,7 @@ export default function Navbar({ isSmallScreen }) {
         from: { height: '0vh' },
         config: { duration: 500 }
     }))
+    
     const [state, setState] = useState({
         isActive: false,
     })
