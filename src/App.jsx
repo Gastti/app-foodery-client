@@ -4,7 +4,7 @@ import { size } from './config/devices';
 import Home from './pages/Home/Home';
 
 function App() {
-  const isSmallScreen = useMediaQuery({ maxWidth: size.tablet });
+  const isSmallScreen = useMediaQuery({ maxWidth: size.mobile });
 
   return (
     <>

@@ -39,6 +39,10 @@ const Container = styled.div`
     @media ${devices.tabletMax} {
         font-size: 3.5rem;
     }
+
+    @media ${devices.mobileMax} {
+        font-size: 3rem;
+    }
     }
 
     & > h1 > span {

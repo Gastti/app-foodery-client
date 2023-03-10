@@ -1,13 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
+import Button from '../Button';
 
 const StyledMenu = styled.ul`
     list-style: none;
     display: flex;
+    align-items: center;
     gap: 30px;
     margin: 0;
     padding: 0;
-    margin-right: 30px;
 
     & > li > a {
         color: var(--c-font-normal)
@@ -34,6 +35,7 @@ export default function Menu() {
                     );
                 })
             }
+            <Button primary>Sign Up</Button>
         </StyledMenu>
     )
 }

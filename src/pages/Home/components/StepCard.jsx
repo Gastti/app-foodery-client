@@ -13,7 +13,7 @@ const animationScale = keyframes`
 const Container = styled.div`
     background-color: #fff;
     border-radius: 15px;
-    box-shadow: 0px 10px 30px #00000022;
+    box-shadow: 0px 10px 40px #00000022;
     padding: 40px;
     font-family: var(--f-ubuntu);
 

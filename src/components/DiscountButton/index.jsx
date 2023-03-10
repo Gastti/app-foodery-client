@@ -39,6 +39,7 @@ const Container = styled.div`
         border-radius: 7px;
         background-color: var(--c-primary);
         color: #fff;
+        box-shadow: inset 5px 5px 15px #ffffff41;
     }
 `;
 

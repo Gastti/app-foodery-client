@@ -16,6 +16,7 @@ const StyledButton = styled.button`
     width: ${props => props.icon ? "45px" : ""};
     height: ${props => props.icon ? "45px" : ""};
     justify-content: center;
+    box-shadow: inset 5px 5px 15px #ffffff41;
 
     &:hover {
         background-color: ${props => props.primary ? "var(--c-primary-h)" : "#d1d1d1"};

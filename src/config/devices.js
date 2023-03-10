@@ -1,6 +1,6 @@
 export const size = {
     mobile: '500px',
-    tablet: '768px',
+    tablet: '800px',
     laptop: '1170px',
     desktop: '1280px'
 }

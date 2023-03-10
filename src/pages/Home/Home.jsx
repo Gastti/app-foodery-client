@@ -6,6 +6,7 @@ import BurgerImage from "../../assets/images/burger.png";
 import SponsorsSection from "../../components/SponsorsSection";
 import Headboard from "./components/Headboard";
 import StepsPage from "./components/StepsPage";
+import FoodMenu from "./components/FoodMenu";
 
 export default function Home({ isSmallScreen }) {
 
@@ -20,6 +21,7 @@ export default function Home({ isSmallScreen }) {
             </Container>
             {/* <SponsorsSection /> */}
             <StepsPage />
+            <FoodMenu isSmallScreen={isSmallScreen}/>
         </>
     )
 }

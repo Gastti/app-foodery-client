@@ -29,3 +29,8 @@ export const stepsContent = {
         }
     ]
 }
+
+export const foodMenuContent = {
+    title: '<span>Menu</span> That Make You Fall in Love',
+    paragraph: 'Lorem ipsum dolor sit amet.'
+}

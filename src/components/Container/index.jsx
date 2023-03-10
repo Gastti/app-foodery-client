@@ -9,7 +9,7 @@ const StyledContainer = styled.div`
 
 const StyledContent = styled.div`
     margin: 0 auto;
-    padding: ${props => props.padding ? "100px 25px" : "25px"};
+    padding: ${props => props.padding ? "100px 50px" : "25px 40px"};
     box-sizing: border-box;
     overflow: hidden;
     position: relative;
@@ -20,9 +20,8 @@ const StyledContent = styled.div`
     }
 
     @media ${devices.desktop} {
-        width: 1280px;
-        max-width: 1280px;
-
+        width: 1200px;
+        max-width: 1200px;
     }
 `;
 

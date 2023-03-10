@@ -12,6 +12,8 @@ const Content = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: sticky;
+    z-index: 10;
 `
 
 const MenuContainer = styled(animated.div)`
@@ -51,6 +53,17 @@ const MenuContainer = styled(animated.div)`
         transition: all .2s;
     }
 
+    & > ul > button {
+        display: block;
+        width: 100%;
+        padding: 15px 0px;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 1.5rem;
+        transition: all .2s;
+        border-radius: 0px;
+    }
+
     & > ul > li > a:hover {
         background-color: var(--c-primary);
         color: #fff;
@@ -74,7 +87,7 @@ export default function Navbar({ isSmallScreen }) {
         from: { height: '0vh' },
         config: { duration: 500 }
     }))
-    
+
     const [state, setState] = useState({
         isActive: false,
     })
@@ -96,12 +109,13 @@ export default function Navbar({ isSmallScreen }) {
     }
 
     return (
-        <Container primary>
+        <Container
+            style={{ position: 'fixed', zIndex: 10 }}
+        >
             <Content>
                 <a href='/'><Logo /></a>
                 <div className="navbar-navigation flex-row flex-align-center" style={{ gap: '10px' }}>
                     {!isSmallScreen && <Menu />}
-                    <Button primary>Sign Up</Button>
                     {
                         isSmallScreen &&
                         <Button
