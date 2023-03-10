@@ -16,6 +16,7 @@ const Container = styled.div`
     box-shadow: 0px 10px 40px #00000022;
     padding: 40px;
     font-family: var(--f-ubuntu);
+    position: relative;
 
     &:hover {
         animation: ${animationScale} .1s linear forwards;
@@ -35,6 +36,36 @@ const Container = styled.div`
         font-weight: 300;
         width: 200px;
         color: #a7a7a7;
+    }
+
+    @media (max-width: 959px) {
+        padding: 20px;
+    }
+
+    @media (max-width: 840px) {
+       padding: 40px;
+    }
+
+    @media (max-width: 679px) {
+        ::before, ::after {
+            content: "";
+            position: absolute;
+            width: 0px;
+            height: 20px;
+        }
+
+        :not(:last-child)::after {
+            background-color: transparent;
+            border: 1px dashed var(--c-primary);
+            bottom: -22px;
+            left: 50%;
+        }
+        :not(:first-child)::before {
+            background-color: transparent;
+            border: 1px dashed var(--c-primary);
+            top: -22px;
+            left: 50%;
+        }
     }
 `;
 

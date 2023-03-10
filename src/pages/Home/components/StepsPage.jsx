@@ -8,9 +8,13 @@ import StepCard from "./StepCard";
 const FlexContainer = styled.div`
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;
-    gap: 50px;
+    justify-content: space-around;
+    gap: 20px;
     margin-top: 50px;
+
+    @media (max-width: 679px) {
+        gap: 60px;
+    }
 `;
 
 export default function StepsPage() {
