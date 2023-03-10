@@ -1,6 +1,7 @@
 import StepOneIcon from "../../assets/images/step-one.png"
 import StepTwoIcon from "../../assets/images/step-two.png"
 import StepThreeIcon from "../../assets/images/step-three.png"
+import CustomerImage from "../../assets/images/customer_image.png";
 
 export const headboardContent = {
     title: 'The most delicious <span>Food</span> and the fastest <span>Delivery</span>.',
@@ -31,6 +32,25 @@ export const stepsContent = {
 }
 
 export const foodMenuContent = {
-    title: '<span>Menu</span> That Make You Fall in Love',
+    title: 'A <span>Menu</span> That Make You Fall in Love',
     paragraph: 'Lorem ipsum dolor sit amet.'
 }
+
+export const CUSTOMERS_CONTENT_EN = {
+    title: 'Costumer Testimonial',
+    subtitle: 'What <span>Costumer</span> Say About Us',
+    paragraph: 'Lorem ipsum dolor sit amet, consectetur.',
+    button: 'Read More'
+}
+
+export const CUSTOMERS_CONTENT_ES = {
+    title: 'Customer Testimonial',
+    subtitle: 'What <span>Customers</span> Say About Us',
+    paragraph: 'Lorem ipsum dolor sit amet, consectetur.',
+    button_placeholder: 'Read More'
+}
+
+export const CUSTOMERS_REVIEWS = [
+    { name: 'Lionel Messi', message: 'Very fast, Anto loves Foodery!', occupation: 'Father and Footballer', image: CustomerImage },
+    { name: 'Julian Alvarez', message: 'It has been easy to buy here', occupation: 'Footballer', image: CustomerImage }
+]

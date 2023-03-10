@@ -3,14 +3,23 @@ import Navbar from "../../components/Navbar";
 import StepsPage from "./components/StepsPage";
 import FoodMenu from "./components/FoodMenu";
 import Headboard from "./components/Headboard";
+import Customers from "./components/Customers";
 
-export default function Home({ isSmallScreen, isTabletScreen }) {
+export default function Home({ isSmallScreen, isTabletScreen, language }) {
     return (
         <>
             <Navbar isTabletScreen={isTabletScreen} />
             <Headboard />
             <StepsPage />
-            <FoodMenu isSmallScreen={isSmallScreen}/>
+            <FoodMenu
+                isTabletScreen={isTabletScreen}
+                isSmallScreen={isSmallScreen}
+            />
+            <Customers
+                isTabletScreen={isTabletScreen}
+                isSmallScreen={isSmallScreen}
+                language={language}
+            />
         </>
     )
 }

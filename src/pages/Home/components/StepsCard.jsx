@@ -72,7 +72,7 @@ const Container = styled.div`
     }
 `;
 
-export default function StepCard({ icon, title, description }) {
+export default function StepsCard({ icon, title, description }) {
     return (
         <Container>
             <img src={icon} />

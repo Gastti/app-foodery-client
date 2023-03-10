@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { stepsContent } from "../HomeContent";
 import Container from "../../../components/Container";
 import Subtitle from "../../../components/Subtitle";
-import StepCard from "./StepCard";
+import StepsCard from "./StepsCard";
 
 const FlexContainer = styled.div`
     display: flex;
@@ -27,7 +27,7 @@ export default function StepsPage() {
             <FlexContainer>
                 {
                     stepsContent.steps.map((step) => {
-                        return <StepCard
+                        return <StepsCard
                             key={step.title}
                             title={step.title}
                             description={step.description}

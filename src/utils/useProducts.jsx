@@ -46,8 +46,18 @@ function useProducts() {
         setTotalPages(maxPages);
         let startIndex = (page - 1) * limit;
         let endIndex = startIndex + limit;
-        let paginatedProducts = filteredProducts.slice(startIndex, endIndex)
-        return paginatedProducts;
+        let paginatedProducts = filteredProducts.slice(startIndex, endIndex);
+
+        return {
+            data: paginatedProducts,
+            pages: {
+                total: maxPages,
+                current: page,
+                prev: page == 1 ? '' : page - 1,
+                next: page == maxPages ? '' : page + 1
+            }
+        }
+        // return paginatedProducts;
     }
 
     const nextPage = (p, sp) => {

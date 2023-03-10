@@ -51,7 +51,7 @@ export const MenuContainer = styled(animated.div)`
     }
 
     & > ul > li > a:hover {
-        background-color: var(--c-primary);
+        background: linear-gradient(90deg, rgba(255,107,0,1) 20%, #ff9100 100%);
         color: #fff;
     }
 `

@@ -21,7 +21,7 @@ const Content = styled.div`
 `
 
 const CloseButton = styled.button`
-    background-color: var(--c-primary);
+    background: linear-gradient(90deg, rgba(255,107,0,1) 20%, #ff9100 100%);
     color: #fff;
     cursor: pointer;
     width: 100%;
@@ -70,6 +70,7 @@ export default function Navbar({ isTabletScreen }) {
                         <Button
                             icon={<MenuIcon />}
                             onClick={handleMenu}
+                            primary
                         />
                     }
                 </div>

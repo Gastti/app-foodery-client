@@ -5,9 +5,9 @@ const StyledButton = styled.button`
     display: flex;
     align-items: center;
     background-color: ${props => props.primary ? "var(--c-primary)" : "#c6c6c6"};
-    background: ${props => props.primary 
-    ? "linear-gradient(90deg, rgba(255,107,0,1) 20%, #ff9100 100%)" 
-    : "linear-gradient(90deg, #c6c6c6 20%, #dbdbdb 100%)" };
+    background: ${props => props.primary
+        ? "linear-gradient(90deg, rgba(255,107,0,1) 20%, #ff9100 100%)"
+        : "linear-gradient(90deg, #c6c6c6 20%, #dbdbdb 100%)"};
     border: none;
     border-radius: 7px;
     cursor: pointer;
@@ -15,14 +15,15 @@ const StyledButton = styled.button`
     font-family: var(--c-ubuntu);
     font-weight: 500;
     padding: ${props => props.icon ? "0px" : "12px 30px"};
-    transition: all .1s;
+    transition: all .3s;
     width: ${props => props.icon ? "45px" : ""};
     height: ${props => props.icon ? "45px" : ""};
     justify-content: center;
-    /* box-shadow: inset 5px 5px 15px #ffffff41; */
 
     &:hover {
-        background-color: ${props => props.primary ? "var(--c-primary-h)" : "#d1d1d1"};
+        background: ${props => props.primary
+        ? "linear-gradient(90deg, rgba(255,107,0,1) 50%, #ff9100 100%)"
+        : "linear-gradient(90deg, #c6c6c6 20%, #dbdbdb 100%)"};
     }
 `;
 

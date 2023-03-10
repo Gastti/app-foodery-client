@@ -4,7 +4,7 @@ import { devices } from "../../config/devices";
 
 const Subtitle = styled.h2`
     font-family: var(--f-ubuntu);
-    font-size: 3.5rem;
+    font-size: 3rem;
     font-weight: 500;
     line-height: 3.5rem;
 
