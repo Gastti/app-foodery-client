@@ -5,10 +5,14 @@ import Home from './pages/Home/Home';
 
 function App() {
   const isSmallScreen = useMediaQuery({ maxWidth: size.mobile });
+  const isTabletScreen = useMediaQuery({ maxWidth: size.tablet })
 
   return (
     <>
-      <Home isSmallScreen={isSmallScreen} />
+      <Home
+        isSmallScreen={isSmallScreen}
+        isTabletScreen={isTabletScreen}
+      />
     </>
   )
 }
