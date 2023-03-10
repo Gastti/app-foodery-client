@@ -55,7 +55,7 @@ const Container = styled.div`
     }
 
     @media ${devices.tabletMax} {
-        width: 250px;
+        width: 100%;
         height: 250px;
         margin-left: 0px;
     }

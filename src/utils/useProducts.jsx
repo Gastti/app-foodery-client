@@ -38,12 +38,12 @@ let totalProducts = [
 function useProducts() {
     const [products, setProducts] = React.useState(totalProducts);
     const [categories, setCategories] = React.useState(totalCategories);
-    const [maxPages, setMaxPages] = React.useState()
+    const [totalPages, setTotalPages] = React.useState(0)
 
     const getProductsByCategory = (id, limit, page) => {
         const filteredProducts = products.filter((product) => product.categoryId == id);
         let maxPages = Math.ceil(filteredProducts.length / limit);
-
+        setTotalPages(maxPages);
         let startIndex = (page - 1) * limit;
         let endIndex = startIndex + limit;
         let paginatedProducts = filteredProducts.slice(startIndex, endIndex)
@@ -58,6 +58,10 @@ function useProducts() {
         sp(p - 1);
     }
 
+    const restorePagesTo = (p, sp) => {
+        sp(1);
+    }
+
     return {
         products,
         setProducts,
@@ -66,7 +70,8 @@ function useProducts() {
         getProductsByCategory,
         nextPage,
         prevPage,
-        maxPages
+        restorePagesTo,
+        totalPages
     }
 }
 
