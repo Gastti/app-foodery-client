@@ -45,7 +45,6 @@ export default function FoodMenu({ isSmallScreen, isTabletScreen }) {
                 products={products}
                 isSmallScreen={isSmallScreen}
             />
-
         </Container>
     )
 }

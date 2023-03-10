@@ -4,8 +4,7 @@ import {
     FlexContainer,
     FoodListContent,
     FoodLi,
-    Icon,
-    FoodProductsContent
+    Icon
 } from "./FoodListComponents";
 
 export default function FoodList({
@@ -27,26 +26,24 @@ export default function FoodList({
                                 active={currentCategory == category.id}
                             >
                                 <Icon><img src={category.icon} /></Icon>
-                                {!isSmallScreen && category.name}
+                                <span>{!isSmallScreen && category.name}</span>
                             </FoodLi>
                         )
                     })
                 }
             </FoodListContent>
-            <FoodProductsContent>
-                {
-                    products.map((product) => {
-                        return (
-                            <FoodCard
-                                key={product.name}
-                                name={product.name}
-                                price={product.price}
-                                image={product.image}
-                            />
-                        )
-                    })
-                }
-            </FoodProductsContent>
+            {
+                products.map((product) => {
+                    return (
+                        <FoodCard
+                            key={product.name}
+                            name={product.name}
+                            price={product.price}
+                            image={product.image}
+                        />
+                    )
+                })
+            }
         </FlexContainer>
     )
 }

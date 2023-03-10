@@ -7,24 +7,33 @@ export const FlexContainer = styled.div`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    gap: 30px;
+
+    & > div {
+        flex-basis: 0;
+        flex-grow: 1;
+        aspect-ratio: 1/1;
+        box-sizing: border-box;
+    }
 
     @media ${devices.tabletMax} {
         flex-direction: column;
+        align-items: stretch;
+        > div {
+            aspect-ratio: auto;
+        }
+        
+        > div:not(:first-child) {
+            min-height: 207.67px;
+        }
     }
 `;
 
-export const FoodListContent = styled.ul`
+export const FoodListContent = styled.div`
     display: flex;
     flex-flow: column;
-    max-height: 310px;
-
-    @media ${devices.tabletMax} {
-        flex-flow: row wrap;
-        justify-content: space-evenly;
-        gap: 20px;
-        margin-bottom: 20px;
-        max-height: none;
-    }
+    gap: 10px;
+    overflow-y: scroll;
 
     ::-webkit-scrollbar {
         width: 8px;
@@ -43,98 +52,57 @@ export const FoodListContent = styled.ul`
     ::-webkit-scrollbar-thumb:hover {
         background-color: #555;
     }
+
+    @media ${devices.tabletMax} {
+        flex-direction: row;
+        flex-wrap: wrap;
+        overflow-y: visible;
+        justify-content: space-between;
+        gap: 10px;
+    }
 `;
 
-export const FoodLi = styled.li`
+export const FoodLi = styled.div`
     display: flex;
     align-items: center;
-    background-color: ${props => props.active ? "var(--c-primary)" : "#ffffff20"};
+    background-color: ${props => props.active ? "var(--c-primary)" : "#f1f1f1;"};
     background: ${props => props.active ? "linear-gradient(90deg, rgba(255,107,0,1) 20%, #ff9100 100%)" : ""};
     color: ${props => props.active ? "#fff" : "#222222"};
     font-size: 1.3rem;
-    font-weight: 500;
+    font-weight: 400;
     border-radius: 15px;
     padding: 10px;
-    width: 340px;
     cursor: pointer;
+    flex-basis: 0;
+    flex-grow: 1;
+    gap: 20px;
     margin-right: 10px;
-    box-shadow: inset 10px 10px 50px #ffffff41, 0px 0px 15px #00000015;
-
-    &:not(:last-child) {
-        margin-bottom: 10px;
-    }
-
-    @media (max-width: 1038px) {
-        width: 240px;
-        margin-right: 0px;
-        margin-bottom: 0px;
-    }
 
     @media ${devices.tabletMax} {
-        width: 300px;
+        margin-right: 0px;
+        font-size: 1rem;
+        font-weight: 500;
+        margin-right: 0px;
     }
 
-    @media (max-width: 700px) {
-        width: 200px;
-    }
-
-    @media ${devices.mobileMax} {
-        display: flex;
-        align-items: center;
+    @media (max-width: 631px){
         justify-content: center;
-        width: 70px;
-        height: 70px;
-        padding: 0px;
-    }
-
-    @media (max-width: 420px) {
-        width: 50px;
-        height: 50px;
+        & > span {
+            display: none;
+        }
     }
 `;
 
 export const Icon = styled.div`
-    background-color: #fff;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    margin-right: 30px;
-    padding: 5px;
-
-    @media ${devices.mobileMax} {
-        margin-right: 0px;
-    }
-
-    @media (max-width: 420px) {
-        width: 40px;
-        height: 40px;
-    }
+    width: 40px;
+    height: 40px;
 
     & > img {
         width: 100%;
     }
-`;
-
-export const FoodProductsContent = styled.div`
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-evenly;
-    align-items: center;
-    width: calc(100% - 358px);
-
-    @media (max-width: 1038px) {
-        width: calc(100% - 250px);
-        gap: 20px;
-    }
 
     @media ${devices.tabletMax} {
-        width: 100%;
-        flex-flow: column wrap;
-        justify-content: space;
-        gap: 40px;
-    }
-
-    @media ${devices.mobileMax} {
-        gap: 20px;
+        margin-right: 0px;
     }
 `;

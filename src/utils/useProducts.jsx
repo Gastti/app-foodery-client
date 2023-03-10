@@ -10,9 +10,10 @@ import SaladIcon from "../assets/images/foods/saladicon.png";
 
 let totalCategories = [
     { id: 1, name: 'Burger', icon: BurgerIcon },
-    { id: 2, name: 'Pizza', icon: PizzaIcon },
-    { id: 3, name: 'Chicken', icon: ChickenIcon },
-    { id: 4, name: 'Salad', icon: SaladIcon }
+    { id: 2, name: 'Burger', icon: PizzaIcon },
+    { id: 3, name: 'Burger', icon: ChickenIcon },
+    { id: 4, name: 'Burger', icon: SaladIcon },
+
 ]
 
 let totalProducts = [

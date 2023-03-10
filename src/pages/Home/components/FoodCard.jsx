@@ -5,16 +5,15 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 const Container = styled.div`
     background-image: ${props => `url('${props.image}')`};
-    background-size: 300px;
+    background-size: cover;
     background-position: center;
     position: relative;
-    width: 300px;
-    height: 300px;
     overflow: hidden;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    aspect-ratio: 1 / 1;
     
     & h5 {
         color: #fff;
@@ -41,31 +40,6 @@ const Container = styled.div`
 
     & > img {
         position: absolute;
-    }
-
-    @media (max-width: 1136px) {
-        width: 250px;
-    }
-
-    @media (max-width: 865px) {
-        width: 100%;
-        height: 160px;
-        background-size: 100%;
-        margin-left: 30px;
-    }
-
-    @media ${devices.tabletMax} {
-        width: 100%;
-        height: 250px;
-        margin-left: 0px;
-    }
-
-    @media (max-width: 619px) {
-        width: 100%;
-    }
-
-    @media ${devices.mobileMax} {
-        width: 100%;
     }
 `;
 
