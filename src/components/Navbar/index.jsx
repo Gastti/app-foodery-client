@@ -70,7 +70,6 @@ export default function Navbar({ isTabletScreen }) {
                         <Button
                             icon={<MenuIcon />}
                             onClick={handleMenu}
-                            primary
                         />
                     }
                 </div>

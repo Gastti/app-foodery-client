@@ -18,8 +18,9 @@ const NavigationButton = styled.button`
     align-items: center;
     justify-content: center;
     background-color: ${props => props.primary ? "var(--c-primary)" : "#fff"};
+    background: ${props => props.primary ? "linear-gradient(90deg, rgba(255,107,0,1) 5%, #ff9100 100%)" : "#fff"};
     color: ${props => props.primary ? "#fff" : "#222222"};
-    box-shadow: inset 5px 5px 15px #ffffff41, 0px 0px 15px #0000001f;
+    box-shadow: 0px 0px 15px #0000001f;
     border: none;
     border-radius: 10px;
     width: 55px;

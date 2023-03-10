@@ -17,6 +17,9 @@ const Container = styled.div`
     padding: 40px;
     font-family: var(--f-ubuntu);
     position: relative;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
 
     &:hover {
         animation: ${animationScale} .1s linear forwards;

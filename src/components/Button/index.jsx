@@ -4,7 +4,10 @@ import styled from 'styled-components';
 const StyledButton = styled.button`
     display: flex;
     align-items: center;
-    background-color: ${props => props.primary ? "var(--c-primary)" : "rgba(0, 0, 0, 0.1)"};
+    background-color: ${props => props.primary ? "var(--c-primary)" : "#c6c6c6"};
+    background: ${props => props.primary 
+    ? "linear-gradient(90deg, rgba(255,107,0,1) 20%, #ff9100 100%)" 
+    : "linear-gradient(90deg, #c6c6c6 20%, #dbdbdb 100%)" };
     border: none;
     border-radius: 7px;
     cursor: pointer;
@@ -16,7 +19,7 @@ const StyledButton = styled.button`
     width: ${props => props.icon ? "45px" : ""};
     height: ${props => props.icon ? "45px" : ""};
     justify-content: center;
-    box-shadow: inset 5px 5px 15px #ffffff41;
+    /* box-shadow: inset 5px 5px 15px #ffffff41; */
 
     &:hover {
         background-color: ${props => props.primary ? "var(--c-primary-h)" : "#d1d1d1"};

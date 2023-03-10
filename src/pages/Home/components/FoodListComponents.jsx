@@ -49,6 +49,7 @@ export const FoodLi = styled.li`
     display: flex;
     align-items: center;
     background-color: ${props => props.active ? "var(--c-primary)" : "#ffffff20"};
+    background: ${props => props.active ? "linear-gradient(90deg, rgba(255,107,0,1) 20%, #ff9100 100%)" : ""};
     color: ${props => props.active ? "#fff" : "#222222"};
     font-size: 1.3rem;
     font-weight: 500;
