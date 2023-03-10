@@ -7,11 +7,11 @@ import Headboard from "./components/Headboard";
 import StepsPage from "./components/StepsPage";
 import FoodMenu from "./components/FoodMenu";
 
-export default function Home({ isSmallScreen }) {
+export default function Home({ isSmallScreen, isTabletScreen }) {
     return (
         <>
-            <Navbar isSmallScreen={isSmallScreen} />
-            <Container primary padding>
+            <Navbar isTabletScreen={isTabletScreen} />
+            <Container primary padding style={{paddingTop: '50px'}}>
                 <FlexContainer>
                     <img src={BurgerImage} />
                     <Headboard />
