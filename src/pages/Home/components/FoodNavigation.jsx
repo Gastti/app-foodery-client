@@ -20,7 +20,7 @@ const NavigationButton = styled.button`
     background-color: ${props => props.primary ? "var(--c-primary)" : "#fff"};
     background: ${props => props.primary ? "linear-gradient(90deg, rgba(255,107,0,1) 5%, #ff9100 100%)" : "#fff"};
     color: ${props => props.primary ? "#fff" : "#222222"};
-    box-shadow: 0px 0px 15px #0000001f;
+    box-shadow: 0px 0px 15px #0000001a;
     border: none;
     border-radius: 10px;
     width: 55px;

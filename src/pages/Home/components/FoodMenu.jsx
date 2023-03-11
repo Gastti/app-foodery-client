@@ -20,7 +20,7 @@ export default function FoodMenu({ isSmallScreen, isTabletScreen }) {
         if (page > totalPages) {
             setPage(1);
         } else if (page < 1) {
-            setPage(totalPages)
+            setPage(totalPages);
         }
     }, [page, currentCategory]);
 

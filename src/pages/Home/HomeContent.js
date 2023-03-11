@@ -2,6 +2,7 @@ import StepOneIcon from "../../assets/images/step-one.png"
 import StepTwoIcon from "../../assets/images/step-two.png"
 import StepThreeIcon from "../../assets/images/step-three.png"
 import CustomerImage from "../../assets/images/customer_image.png";
+import PlaceholderImage from "../../assets/images/placeholder.png";
 
 export const headboardContent = {
     title: 'The most delicious <span>Food</span> and the fastest <span>Delivery</span>.',
@@ -53,4 +54,33 @@ export const CUSTOMERS_CONTENT_ES = {
 export const CUSTOMERS_REVIEWS = [
     { name: 'Lionel Messi', message: 'Very fast, Anto loves Foodery!', occupation: 'Father and Footballer', image: CustomerImage },
     { name: 'Julian Alvarez', message: 'It has been easy to buy here', occupation: 'Footballer', image: CustomerImage }
+]
+
+export const ARTICLES_CONTENT_EN = {
+    title: 'Articles',
+    subtitle: 'Recent Post',
+    paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.',
+}
+
+export const ARTICLES_CONTENT_ES = {
+    title: 'Blog',
+    subtitle: 'Articulos Recientes',
+    paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.',
+}
+
+export const ARTICLES_PLACEHOLDER = [
+    {
+        title: 'This is my article',
+        paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.',
+        date: 'March 3, 2023',
+        image: PlaceholderImage,
+        button_placeholder: 'Read More'
+    },
+    {
+        title: 'This is my second Article',
+        paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.',
+        date: 'March 3, 2023',
+        image: PlaceholderImage,
+        button_placeholder: 'Read More'
+    }
 ]

@@ -35,7 +35,6 @@ let totalProducts = [
     { name: 'Salad Number 4', price: 22, image: PizzaImage2, categoryId: 4 },
 ]
 
-
 function useProducts() {
     const [products, setProducts] = React.useState(totalProducts);
     const [categories, setCategories] = React.useState(totalCategories);
