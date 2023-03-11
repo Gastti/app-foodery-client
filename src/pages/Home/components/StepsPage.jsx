@@ -8,11 +8,12 @@ import StepsCard from "./StepsCard";
 const FlexContainer = styled.div`
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-around;
+    justify-content: space-between;
     gap: 20px;
-    margin-top: 50px;
+    margin-top: 60px;
 
-    @media (max-width: 679px) {
+    @media (max-width: 800px) {
+        flex-flow: column wrap;
         gap: 60px;
     }
 `;
@@ -20,7 +21,7 @@ const FlexContainer = styled.div`
 export default function StepsPage() {
     return (
         <Container
-            style={{ textAlign: 'center' }}
+            style={{ textAlign: 'center'}}
             padding
         >
             <Subtitle dangerouslySetInnerHTML={{ __html: stepsContent.title }} />

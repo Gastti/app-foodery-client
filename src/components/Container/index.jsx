@@ -9,9 +9,8 @@ const StyledContainer = styled.div`
 
 const StyledContent = styled.div`
     margin: 0 auto;
-    padding: ${props => props.padding ? "100px 50px" : "25px 40px"};
+    padding: ${props => props.padding ? "100px 25px" : "25px 25px"};
     box-sizing: border-box;
-    overflow: hidden;
     position: relative;
 
     @media ${devices.mobile} {

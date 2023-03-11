@@ -11,10 +11,13 @@ const animationScale = keyframes`
 `
 
 const Container = styled.div`
+    flex-basis: 0;
+    flex-grow: 1;
+    min-width: 250px;
     background-color: #fff;
     border-radius: 15px;
     box-shadow: 0px 10px 40px #00000022;
-    padding: 40px;
+    padding: 20px;
     font-family: var(--f-ubuntu);
     position: relative;
     user-select: none;
@@ -37,19 +40,11 @@ const Container = styled.div`
     & > p {
         font-size: 1rem;
         font-weight: 300;
-        width: 200px;
+        height: 60px;
         color: #a7a7a7;
     }
 
-    @media (max-width: 959px) {
-        padding: 20px;
-    }
-
-    @media (max-width: 840px) {
-       padding: 40px;
-    }
-
-    @media (max-width: 679px) {
+    @media (max-width: 800px) {
         ::before, ::after {
             content: "";
             position: absolute;

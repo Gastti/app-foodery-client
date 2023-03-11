@@ -6,9 +6,9 @@ import Button from "../../../../components/Button";
 const Container = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    max-width: 370px;
-    max-height: 350px;
+    align-items: flex-start;
+    flex-basis: 100px;
+    flex-grow: 1;
 
     & > span {
         color: var(--c-primary);
@@ -31,8 +31,14 @@ const Container = styled.div`
         margin-top: 20px;
     }
 
-    @media (max-width: 1149px) {
+    @media (max-width: 999px) {
         text-align: center;
+        align-items: center;
+    }
+
+    @media (max-width: 500px) {
+        text-align: left;
+        align-items: flex-start;
     }
 `;
 
