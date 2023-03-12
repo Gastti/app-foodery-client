@@ -5,6 +5,7 @@ import FoodMenu from "./components/FoodMenu";
 import Headboard from "./components/Headboard";
 import Customers from "./components/Customers";
 import Articles from "./components/Articles";
+import FAQ from "./components/FAQ";
 
 export default function Home({ isSmallScreen, isTabletScreen, language }) {
     return (
@@ -22,6 +23,9 @@ export default function Home({ isSmallScreen, isTabletScreen, language }) {
                 language={language}
             />
             <Articles
+                language={language}
+            />
+            <FAQ
                 language={language}
             />
         </>

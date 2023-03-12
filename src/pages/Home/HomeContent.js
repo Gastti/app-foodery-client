@@ -84,3 +84,18 @@ export const ARTICLES_PLACEHOLDER = [
         button_placeholder: 'Read More'
     }
 ]
+
+export const FAQ_CONTENT = [
+    {
+        query: 'How to order food?',
+        reply: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.'
+    },
+    {
+        query: 'How to track an order?',
+        reply: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.'
+    },
+    {
+        query: 'How to pay?',
+        reply: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.'
+    }
+]
