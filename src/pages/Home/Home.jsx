@@ -8,6 +8,7 @@ import Articles from "./components/Articles";
 import FAQ from "./components/FAQ";
 import Container from "../../components/Container";
 import SubscriptionCard from "../../components/SubscriptionCard";
+import Footer from "../../components/Footer";
 
 export default function Home({ isSmallScreen, isTabletScreen, language }) {
     return (
@@ -35,6 +36,9 @@ export default function Home({ isSmallScreen, isTabletScreen, language }) {
                     language={language}
                 />
             </Container>
+            <Footer
+                language={language}
+            />
         </>
     )
 }
