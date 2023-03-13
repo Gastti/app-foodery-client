@@ -31,7 +31,7 @@ export default function Home({ isSmallScreen, isTabletScreen, language }) {
             <FAQ
                 language={language}
             />
-            <Container>
+            <Container style={{ marginBottom: '100px' }}>
                 <SubscriptionCard
                     language={language}
                 />
