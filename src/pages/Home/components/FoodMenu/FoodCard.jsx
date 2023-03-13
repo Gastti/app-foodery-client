@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { devices } from "../../../config/devices";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 const Container = styled.div`

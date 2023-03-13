@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import DiscountButton from "../../../components/DiscountButton"
-import { devices } from "../../../config/devices";
-import { headboardContent } from "../HomeContent";
+import DiscountButton from "../../../../components/DiscountButton"
+import { devices } from "../../../../config/devices";
+import { headboardContent } from "../../HomeContent";
 
 const Container = styled.div`
     display: flex;

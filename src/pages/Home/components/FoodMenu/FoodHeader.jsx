@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import FoodNavigation from "./FoodNavigation";
-import Subtitle from "../../../components/Subtitle";
-import { foodMenuContent } from "../HomeContent";
-import { devices } from "../../../config/devices";
+import Subtitle from "../../../../components/Subtitle";
+import { foodMenuContent } from "../../HomeContent";
+import { devices } from "../../../../config/devices";
 
 const Container = styled.div`
     display: flex;

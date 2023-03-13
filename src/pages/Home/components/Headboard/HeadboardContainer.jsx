@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { devices } from "../../../config/devices";
+import { devices } from "../../../../config/devices";
 
-export const FlexContainer = styled.div`
+export const HeadboardContainer = styled.div`
   display: flex;
   flex-flow: ${props => props.column ? "column wrap" : "row wrap"};
   align-items: center;

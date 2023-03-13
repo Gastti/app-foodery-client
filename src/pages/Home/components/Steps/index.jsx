@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { stepsContent } from "../HomeContent";
-import Container from "../../../components/Container";
-import Subtitle from "../../../components/Subtitle";
+import { stepsContent } from "../../HomeContent";
+import Container from "../../../../components/Container";
+import Subtitle from "../../../../components/Subtitle";
 import StepsCard from "./StepsCard";
 
 const FlexContainer = styled.div`
@@ -18,7 +18,7 @@ const FlexContainer = styled.div`
     }
 `;
 
-export default function StepsPage() {
+export default function Steps() {
     return (
         <Container
             style={{ textAlign: 'center'}}

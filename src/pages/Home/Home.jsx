@@ -1,18 +1,20 @@
 import React from "react";
 import Navbar from "../../components/Navbar";
-import StepsPage from "./components/StepsPage";
+import Steps from "./components/Steps";
 import FoodMenu from "./components/FoodMenu";
 import Headboard from "./components/Headboard";
 import Customers from "./components/Customers";
 import Articles from "./components/Articles";
 import FAQ from "./components/FAQ";
+import Container from "../../components/Container";
+import SubscriptionCard from "../../components/SubscriptionCard";
 
 export default function Home({ isSmallScreen, isTabletScreen, language }) {
     return (
         <>
             <Navbar isTabletScreen={isTabletScreen} />
             <Headboard />
-            <StepsPage />
+            <Steps />
             <FoodMenu
                 isTabletScreen={isTabletScreen}
                 isSmallScreen={isSmallScreen}
@@ -28,6 +30,11 @@ export default function Home({ isSmallScreen, isTabletScreen, language }) {
             <FAQ
                 language={language}
             />
+            <Container>
+                <SubscriptionCard
+                    language={language}
+                />
+            </Container>
         </>
     )
 }

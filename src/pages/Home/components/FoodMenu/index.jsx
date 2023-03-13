@@ -1,7 +1,7 @@
 import React from "react";
-import Container from "../../../components/Container";
-import FoodList from "../components/FoodList"
-import { useProducts } from "../../../utils/useProducts";
+import Container from "../../../../components/Container";
+import FoodList from "./FoodList"
+import { useProducts } from "../../../../utils/useProducts";
 import FoodHeader from "./FoodHeader";
 
 export default function FoodMenu({ isSmallScreen, isTabletScreen }) {
