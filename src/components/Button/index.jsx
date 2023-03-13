@@ -6,7 +6,7 @@ const StyledButton = styled.button`
     align-items: center;
     background-color: ${props => props.primary ? "var(--c-primary)" : "#c6c6c6"};
     background: ${props => props.primary
-        ? "linear-gradient(90deg, rgba(255,107,0,1) 20%, #ff9100 100%)"
+        ? "var(--g-primary)"
         : "linear-gradient(90deg, #c6c6c6 20%, #dbdbdb 100%)"};
     border: none;
     border-radius: 7px;
@@ -23,7 +23,7 @@ const StyledButton = styled.button`
     &:hover {
         background: ${props => props.primary
         ? "linear-gradient(90deg, rgba(255,107,0,1) 50%, #ff9100 100%)"
-        : "linear-gradient(90deg, #c6c6c6 20%, #dbdbdb 100%)"};
+        : "linear-gradient(90deg, #c6c6c6 50%, #dbdbdb 100%)"};
     }
 `;
 
