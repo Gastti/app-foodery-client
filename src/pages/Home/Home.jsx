@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "../../components/Navbar";
 import Steps from "./components/Steps";
 import FoodMenu from "./components/FoodMenu";
 import Headboard from "./components/Headboard";
@@ -13,7 +12,6 @@ import Footer from "../../components/Footer";
 export default function Home({ isSmallScreen, isTabletScreen, language }) {
     return (
         <>
-            <Navbar isTabletScreen={isTabletScreen} />
             <Headboard />
             <Steps />
             <FoodMenu
