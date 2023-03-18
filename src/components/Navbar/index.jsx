@@ -8,6 +8,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import Menu from '../Menu';
 import { useSpring } from '@react-spring/web';
 import { MenuContainer } from './MenuContainer';
+import { NavLink } from 'react-router-dom';
 
 const Content = styled.div`
     display: flex;
@@ -62,9 +63,9 @@ export default function Navbar({ isTabletScreen }) {
             style={{ position: 'fixed', zIndex: 10 }}
         >
             <Content>
-                <a href='/'><Logo /></a>
+                <NavLink to='/'><Logo /></NavLink>
                 <div className="navbar-navigation flex-row flex-align-center" style={{ gap: '10px' }}>
-                    {!isTabletScreen && <Menu />}
+                    {!isTabletScreen && <Menu handleMenu={handleMenu} />}
                     {
                         isTabletScreen &&
                         <Button
@@ -78,7 +79,7 @@ export default function Navbar({ isTabletScreen }) {
             {
                 state.isActive &&
                 <MenuContainer style={springs}>
-                    <Menu />
+                    <Menu handleMenu={handleMenu} />
                     <CloseButton
                         onClick={handleMenu}
                     >

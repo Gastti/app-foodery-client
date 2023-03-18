@@ -11,18 +11,18 @@ export const FOOTER_CONTENT_EN = {
     pages: {
         title: 'Pages',
         links: [
-            { name: 'Product', href: '/' },
-            { name: 'Career', href: '/' },
-            { name: 'FAQ', href: '/' },
-            { name: 'Blog', href: '/' }
+            { name: 'Product', href: '/product' },
+            { name: 'Career', href: '/career' },
+            { name: 'FAQ', href: '/faq' },
+            { name: 'Blog', href: '/blog' }
         ]
     },
     services: {
         title: 'Our Service',
         links: [
-            { name: 'Transaction', href: '/' },
-            { name: 'Help Center', href: '/' },
-            { name: 'Delivery', href: '/' }
+            { name: 'Transaction', href: '/transaction' },
+            { name: 'Help Center', href: '/helpcenter' },
+            { name: 'Delivery', href: '/delivery' }
         ]
     }
 }

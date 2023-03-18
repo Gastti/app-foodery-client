@@ -16,18 +16,18 @@ export const FOOTER_CONTENT_ES = {
     pages: {
         title: 'Paginas',
         links: [
-            { name: 'Producto', href: '/' },
-            { name: 'Carrera', href: '/' },
-            { name: 'FAQ', href: '/' },
-            { name: 'Blog', href: '/' }
+            { name: 'Producto', href: '/product' },
+            { name: 'Carrera', href: '/career' },
+            { name: 'FAQ', href: '/faq' },
+            { name: 'Blog', href: '/blog' }
         ]
     },
     services: {
         title: 'Nuestro Servicio',
         links: [
-            { name: 'Transacción', href: '/' },
-            { name: 'Centro de Ayuda', href: '/' },
-            { name: 'Reparto', href: '/' }
+            { name: 'Transacción', href: '/transaction' },
+            { name: 'Centro de Ayuda', href: '/helpcenter' },
+            { name: 'Reparto', href: '/delivery' }
         ]
     }
 }

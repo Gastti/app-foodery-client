@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Button from '../Button';
+import { NavLink } from 'react-router-dom';
 
 const StyledMenu = styled.ul`
     list-style: none;
@@ -19,11 +20,11 @@ const StyledMenu = styled.ul`
         }
 `
 
-export default function Menu() {
+export default function Menu({ handleMenu }) {
     const navigation = [
-        { label: 'Browse', href: '/browse' },
-        { label: 'Order', href: '/order' },
-        { label: 'Delivery', href: '/delivery' }
+        { label: 'Browse', to: '/browse' },
+        { label: 'Order', to: '/order' },
+        { label: 'Delivery', to: '/delivery' }
     ];
 
     return (
@@ -31,7 +32,7 @@ export default function Menu() {
             {
                 navigation.map((link) => {
                     return (
-                        <li key={link.href}><a href={link.href}>{link.label}</a></li>
+                        <li key={link.to}><NavLink to={link.to} onClick={handleMenu}>{link.label}</NavLink></li>
                     );
                 })
             }
