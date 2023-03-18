@@ -32,7 +32,7 @@ export default function Menu({ handleMenu }) {
             {
                 navigation.map((link) => {
                     return (
-                        <li key={link.to}><NavLink to={link.to} onClick={handleMenu}>{link.label}</NavLink></li>
+                        <li key={link.to}><NavLink to={link.to}>{link.label}</NavLink></li>
                     );
                 })
             }
