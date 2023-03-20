@@ -1,13 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
-const StyledButton = styled.button`
+const StyledNavLink = styled(NavLink)`
     display: flex;
     align-items: center;
-    background-color: ${props => props.primary ? "var(--c-primary)" : "#c6c6c6"};
-    background: ${props => props.primary
+    background-color: ${props => props.color == 'primary' ? "var(--c-primary)" : "#c6c6c6"};
+    background: ${props => props.color == 'primary'
         ? "var(--g-primary)"
         : "linear-gradient(90deg, #c6c6c6 20%, #dbdbdb 100%)"};
+    color: #fff;
     border: none;
     border-radius: 7px;
     cursor: pointer;
@@ -21,23 +23,25 @@ const StyledButton = styled.button`
     justify-content: center;
 
     &:hover {
-        background: ${props => props.primary
+        color: #fff;
+        background: ${props => props.color == 'primary'
         ? "linear-gradient(90deg, rgba(255,107,0,1) 50%, #ff9100 100%)"
         : "linear-gradient(90deg, #c6c6c6 50%, #dbdbdb 100%)"};
     }
 `;
 
 
-export default function Button({ children, icon, primary, onClick, size }) {
+export default function Button({ children, icon, color, onClick, size, to }) {
     return (
-        <StyledButton
-            primary={primary}
+        <StyledNavLink
+            color={color}
             icon={icon}
             onClick={onClick}
             size={size}
+            to={to}
         >
             {icon}
             {children}
-        </StyledButton>
+        </StyledNavLink>
     )
 }
