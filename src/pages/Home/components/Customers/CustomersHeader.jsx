@@ -48,7 +48,7 @@ export default function CustomersHeader({ title, subtitle, paragraph, button_pla
             <span>{title}</span>
             <Subtitle dangerouslySetInnerHTML={{ __html: subtitle }}></Subtitle>
             <p>{paragraph}</p>
-            <Button primary>{button_placeholder}</Button>
+            <Button color='primary'>{button_placeholder}</Button>
         </Container>
     )
 }

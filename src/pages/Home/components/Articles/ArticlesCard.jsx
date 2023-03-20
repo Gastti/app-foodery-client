@@ -68,7 +68,7 @@ export default function ArticlesCard({
                 <p>{date}</p>
                 <h4>{title}</h4>
                 <p>{paragraph}</p>
-                <Button primary>{button_placeholder}</Button>
+                <Button color='primary'>{button_placeholder}</Button>
             </div>
         </Container>
     )
