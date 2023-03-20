@@ -17,7 +17,7 @@ export default function AuthPage() {
 
     const handleOnSubmit = (e) => {
         e.preventDefault();
-        auth.loginWithUsername(userdata.username, userdata.password);
+        auth.login(userdata.username, userdata.password);
     }
 
     return (
@@ -41,6 +41,7 @@ export default function AuthPage() {
 
                 <button type='submit'>Login</button>
             </form>
+            <button onClick={auth.logout}>Logout</button>
         </Container>
     )
 }

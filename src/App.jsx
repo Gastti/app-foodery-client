@@ -8,6 +8,7 @@ import BrowsePage from './pages/BrowsePage/BrowsePage';
 import OrderPage from './pages/OrderPage/OrderPage';
 import DeliveryPage from './pages/DeliveryPage/DeliveryPage';
 import AuthPage from './pages/AuthPage/AuthPage';
+import WelcomePage from './pages/WelcomePage/WelcomePage';
 import { AuthProvider } from './services/auth';
 
 function App() {
@@ -35,7 +36,8 @@ function App() {
           <Route path="/browse" element={<BrowsePage />} />
           <Route path="/order" element={<OrderPage />} />
           <Route path="/delivery" element={<DeliveryPage />} />
-          <Route path="/auth" element={<AuthPage />} />
+          <Route path="/auth/login" element={<AuthPage />} />
+          <Route path="/welcome" element={<WelcomePage />} />
         </Routes>
       </AuthProvider>
     </HashRouter>
