@@ -6,7 +6,7 @@ import HeadboardContent from "./HeadboardContent";
 
 export default function Headboard() {
     return (
-        <Container primary padding style={{ paddingTop: '50px' }}>
+        <Container primary padding substyle={{ padding: '200px 25px' }}>
             <HeadboardContainer>
                 <img src={BurgerImage} />
                 <HeadboardContent />
