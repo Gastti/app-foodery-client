@@ -42,7 +42,10 @@ function AuthProvider({ children }) {
 
             setTokenOnLocalStorage(data.token);
             setLoading(false);
-            navigate('/welcome');
+            setError(false);
+            setTimeout(() => {
+                navigate('/welcome');
+            }, 1000);
         } catch (error) {
             console.error(error);
         }

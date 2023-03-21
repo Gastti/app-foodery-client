@@ -23,7 +23,6 @@ export default function WelcomePage() {
             navigate('/')
         }, 6000)
 
-
         const timer = setInterval(() => {
             setTimeLeft(prevTimeLeft => prevTimeLeft - 1);
         }, 1000);
@@ -37,7 +36,7 @@ export default function WelcomePage() {
             <Container
                 padding
                 primary
-                substyle={{ height: 'calc(100vh - 328.39px)' }}
+                style={{ height: 'calc(100vh - 228.39px)' }}
                 flex='row'
                 justify='center'
                 align='center'
