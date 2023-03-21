@@ -8,6 +8,10 @@ const StyledContainer = styled.div`
 `;
 
 const StyledContent = styled.div`
+    display: ${props => props.flex ? 'flex' : ''};
+    flex-direction: ${props => props.flex || ''};
+    justify-content: ${props => props.justify || ''};
+    align-items: ${props => props.align || ''};
     margin: 0 auto;
     padding: ${props => props.padding ? "100px 25px" : "25px 25px"};
     box-sizing: border-box;
@@ -24,10 +28,16 @@ const StyledContent = styled.div`
     }
 `;
 
-export default function Container({ children, primary, style, padding }) {
+export default function Container({ children, primary, substyle, style, padding, flex, align, justify }) {
     return (
         <StyledContainer primary={primary} style={style}>
-            <StyledContent padding={padding}>
+            <StyledContent
+                padding={padding}
+                flex={flex}
+                align={align}
+                justify={justify}
+                style={substyle}
+            >
                 {children}
             </StyledContent>
         </StyledContainer>

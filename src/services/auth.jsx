@@ -13,75 +13,99 @@ function AuthProvider({ children }) {
     } = useToken();
 
     const [user, setUser] = React.useState(null);
-    const [token, setToken] = React.useState('');
+    const [error, setError] = React.useState(false);
     const [loading, setLoading] = React.useState(false);
 
     React.useEffect(() => {
         const localToken = getTokenFromLocalStorage();
-
-        const fetchData = async () => {
+        const loadUser = async () => {
             if (localToken) {
-                try {
-                    const { data } = await getUser(localToken);
-                    setToken(localToken);
-                    setUser(data);
-                } catch (error) {
-                    console.log(error);
-                }
+                fetch('http://localhost:5000/users/me', {
+                    method: 'GET',
+                    headers: { 'Authorization': `Bearer ${localToken}` }
+                })
+                    .then(data => data.json())
+                    .then(data => setUser(data.data))
             }
         }
+        loadUser();
+    }, [])
 
-        fetchData();
-    }, [token]);
-
-    const login = async (username, password) => {
+    const signin = async (email, password) => {
         try {
             setLoading(true);
             const response = await fetch('http://localhost:5000/auth/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ username, password })
+                body: JSON.stringify({ email, password })
             });
 
             if (!response.ok) {
                 setLoading(false);
-                throw new Error('Error al iniciar sesión.');
+                setError(true);
+                return null;
             }
 
             const { data } = await response.json();
+            const loggedUser = await getUser(data.token);
 
+            setUser(loggedUser);
             setTokenOnLocalStorage(data.token);
-            setLoading(false)
+            setLoading(false);
             navigate('/welcome');
-
         } catch (error) {
             console.error(error);
+        }
+    }
+
+    const signup = async (first_name, last_name, username, email, password) => {
+        try {
+            setLoading(true);
+            const response = await fetch('http://localhost:5000/auth/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ first_name, last_name, username, email, password })
+            });
+
+            if (!response.ok) {
+                setLoading(false);
+                setError(true);
+                console.log('Error al registrarse');
+            }
+
+            const data = await response.json();
+            setLoading(false);
+            setError(false);
+            console.log(data.message);
+        } catch (error) {
+            console.log(error);
         }
     }
 
     const logout = () => {
         try {
             removeTokenFromLocalStorage();
+            setUser(null);
         } catch (error) {
             console.log(error);
         }
     }
 
-    const getUser = async (localToken) => {
+    const getUser = async (token) => {
         const response = await fetch('http://localhost:5000/users/me', {
             method: 'GET',
-            headers: { 'Authorization': `Bearer ${localToken}` }
+            headers: { 'Authorization': `Bearer ${token}` }
         })
 
         if (!response.ok) {
             throw new Error('Error al obtener el usuario.');
         }
 
-        const data = await response.json();
+        const { data } = await response.json();
         return data;
     }
 
-    const auth = { user, token, login, logout };
+    const auth = { user, setUser, signin, signup, logout, error, loading };
 
     return (
         <AuthContext.Provider value={auth}>

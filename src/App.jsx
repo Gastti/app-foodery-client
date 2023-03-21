@@ -36,7 +36,7 @@ function App() {
           <Route path="/browse" element={<BrowsePage />} />
           <Route path="/order" element={<OrderPage />} />
           <Route path="/delivery" element={<DeliveryPage />} />
-          <Route path="/auth/login" element={<AuthPage />} />
+          <Route path="/auth" element={<AuthPage />} />
           <Route path="/welcome" element={<WelcomePage />} />
         </Routes>
       </AuthProvider>

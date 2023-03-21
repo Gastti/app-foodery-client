@@ -19,7 +19,7 @@
 
   --c-background: #f4f4fc;
   --c-primary: #ff6b00;
-  --c-primary-h: #fe7615;
+  --c-primary-h: #ed6708;
   --c-font-normal: #222222;
   --c-font-normal-h: #000000;
   --f-ubuntu: 'Ubuntu', sans-serif;
@@ -38,12 +38,12 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: var(--c-primary);
   text-decoration: inherit;
 }
 
 a:hover {
-  color: #535bf2;
+  color: var(--c-primary-h);
 }
 
 h1 {
@@ -82,4 +82,8 @@ h1 {
 
 .flex-justify-center {
   justify-content: center;
+}
+
+input:focus {
+  outline: none;
 }
