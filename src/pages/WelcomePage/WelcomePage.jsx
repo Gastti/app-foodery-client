@@ -4,7 +4,7 @@ import Container from '../../components/Container'
 import Footer from '../../components/Footer';
 import { useAuth } from '../../services/auth'
 import WelcomeContent from './WelcomeContent';
-import Subtitle from '../../components/Subtitle';
+import WelcomeTitle from './WelcomeTitle';
 import Button from '../../components/Button';
 import Divider from '../../components/Divider';
 
@@ -32,8 +32,6 @@ export default function WelcomePage() {
 
     }, [auth.user])
 
-    console.log(timeLeft);
-
     return (
         <>
             <Container
@@ -45,7 +43,7 @@ export default function WelcomePage() {
                 align='center'
             >
                 <WelcomeContent>
-                    {(!loading && auth.user) && <Subtitle>Welcome, <span>{auth.user.username}</span>!</Subtitle>}
+                    {(!loading && auth.user) && <WelcomeTitle>Welcome, <span>{auth.user.username}</span>!</WelcomeTitle>}
                     <p>We are glad to have you with us, we hope you enjoy your ride.</p>
                     <div style={{ display: 'flex', gap: '10px', marginTop: '20px' }}>
                         <Button

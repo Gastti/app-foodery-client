@@ -5,13 +5,13 @@ import CustomerImage from "../../assets/images/customer_image.png";
 import PlaceholderImage from "../../assets/images/placeholder.png";
 
 export const headboardContent = {
-    title: 'The most delicious <span>Food</span> and the fastest <span>Delivery</span>.',
+    title: 'The most delicious &Food& and the fastest &Delivery&',
     paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.',
     discount: 'Get 20% discount.'
 }
 
 export const stepsContent = {
-    title: `<span>Order</span> in three steps`,
+    title: `&Order& in three steps`,
     paragraph: "It's simple, just follow these 3 steps.",
     steps: [
         {
@@ -33,20 +33,20 @@ export const stepsContent = {
 }
 
 export const foodMenuContent = {
-    title: 'A <span>Menu</span> That Make You Fall in Love',
+    title: 'A &Menu& That Make You Fall in Love',
     paragraph: 'Lorem ipsum dolor sit amet.'
 }
 
 export const CUSTOMERS_CONTENT_EN = {
-    title: 'Costumer Testimonial',
-    subtitle: 'What <span>Costumer</span> Say About Us',
+    title: 'Custumer Testimonial',
+    subtitle: 'What &Costumer& Say About Us',
     paragraph: 'Lorem ipsum dolor sit amet, consectetur.',
-    button: 'Read More'
+    button_placeholder: 'Read More'
 }
 
 export const CUSTOMERS_CONTENT_ES = {
     title: 'Customer Testimonial',
-    subtitle: 'What <span>Customers</span> Say About Us',
+    subtitle: 'What &Customers& Say About Us',
     paragraph: 'Lorem ipsum dolor sit amet, consectetur.',
     button_placeholder: 'Read More'
 }
@@ -58,7 +58,7 @@ export const CUSTOMERS_REVIEWS = [
 
 export const ARTICLES_CONTENT_EN = {
     title: 'Articles',
-    subtitle: 'Recent Post',
+    subtitle: 'Recent &Post&',
     paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.',
 }
 

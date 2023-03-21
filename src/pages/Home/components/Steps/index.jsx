@@ -21,10 +21,10 @@ const FlexContainer = styled.div`
 export default function Steps() {
     return (
         <Container
-            style={{ textAlign: 'center'}}
+            style={{ textAlign: 'center' }}
             padding
         >
-            <Subtitle dangerouslySetInnerHTML={{ __html: stepsContent.title }} />
+            <Subtitle>{stepsContent.title}</Subtitle>
             <FlexContainer>
                 {
                     stepsContent.steps.map((step) => {

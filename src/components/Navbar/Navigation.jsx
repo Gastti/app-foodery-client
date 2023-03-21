@@ -33,6 +33,7 @@ export default function Navigation() {
                 return <li key={route.to}><NavLink to={route.to}>{route.label}</NavLink></li>
             })}
             {isLoggedIn && <Avatar image={auth.user.image} />}
+            {isLoggedIn && <span>{auth.user.username}</span>}
             {isLoggedIn
                 ? <Button to='/' onClick={handleLogout} color='primary'>Logout</Button>
                 : <Button to='/auth' color='primary'>Sign In</Button>

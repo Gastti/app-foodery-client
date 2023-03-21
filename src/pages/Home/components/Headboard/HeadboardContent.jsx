@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import DiscountButton from "../../../../components/DiscountButton"
+import Subtitle from "../../../../components/Subtitle";
 import { devices } from "../../../../config/devices";
 import { headboardContent } from "../../HomeContent";
 
@@ -61,7 +62,7 @@ const Container = styled.div`
 export default function HeadboardContent() {
     return (
         <Container>
-            <h1 dangerouslySetInnerHTML={{ __html: headboardContent.title }}></h1>
+            <Subtitle fontsize='4rem'>{headboardContent.title}</Subtitle>
             <p>{headboardContent.paragraph}</p>
             <DiscountButton>{headboardContent.discount}</DiscountButton>
         </Container>

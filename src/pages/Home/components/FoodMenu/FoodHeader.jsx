@@ -40,7 +40,7 @@ export default function FoodHeader({
     return (
         <Container>
             <div>
-                <Subtitle dangerouslySetInnerHTML={{ __html: foodMenuContent.title }} />
+                <Subtitle>{foodMenuContent.title}</Subtitle>
                 <p>{foodMenuContent.paragraph}</p>
             </div>
             {

@@ -19,7 +19,7 @@ const Content = styled.div`
     background-color: #fff;
     padding: 10px;
     border-radius: 10px;
-    box-shadow: 0px 2px 5px #00000011;
+    /* box-shadow: 0px 2px 5px #00000011; */
 `
 
 const CloseButton = styled.button`
