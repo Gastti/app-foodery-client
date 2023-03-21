@@ -5,12 +5,18 @@ import SignInForm from './SignInForm';
 import Footer from '../../components/Footer';
 import AuthHeadboard from './AuthHeadboard';
 import SignUpForm from './SignUpForm';
+import { Navigate } from 'react-router-dom';
 
 export default function AuthPage() {
+    const auth = useAuth();
     const [activeForm, setActiveForm] = React.useState('signin');
 
     const handleActiveForm = (value) => {
         setActiveForm(value);
+    }
+
+    if (auth.user) {
+        return <Navigate to="/" />
     }
 
     return (
