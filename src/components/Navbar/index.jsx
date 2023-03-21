@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import Container from '../Container';
+// import Container from '../Container';
 import Logo from '../Logo';
 import Button from '../Button';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -10,6 +10,12 @@ import { useSpring } from '@react-spring/web';
 import { MenuContainer } from './MenuContainer';
 import { NavLink } from 'react-router-dom';
 
+const Container = styled.div`
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    border-bottom: 1px solid #00000012;
+`
 const Content = styled.div`
     display: flex;
     justify-content: space-between;
@@ -17,9 +23,7 @@ const Content = styled.div`
     position: sticky;
     z-index: 10;
     background-color: #fff;
-    padding: 10px;
-    border-radius: 10px;
-    /* box-shadow: 0px 2px 5px #00000011; */
+    padding: 15px 25px;
 `
 
 const CloseButton = styled.button`
@@ -60,9 +64,7 @@ export default function Navbar({ isTabletScreen }) {
     }
 
     return (
-        <Container
-            style={{ position: 'fixed', zIndex: 10 }}
-        >
+        <Container>
             <Content>
                 <NavLink to='/'><Logo /></NavLink>
                 <div className="navbar-navigation flex-row flex-align-center" style={{ gap: '10px' }}>
@@ -72,7 +74,7 @@ export default function Navbar({ isTabletScreen }) {
                         <Button
                             icon={<MenuIcon />}
                             onClick={handleMenu}
-                            primary
+                            color='primary'
                         />
                     }
                 </div>
