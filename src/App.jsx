@@ -9,7 +9,7 @@ import OrderPage from './pages/OrderPage/OrderPage';
 import DeliveryPage from './pages/DeliveryPage/DeliveryPage';
 import AuthPage from './pages/AuthPage/AuthPage';
 import WelcomePage from './pages/WelcomePage/WelcomePage';
-import { AuthProvider } from './services/auth';
+import { AuthProvider, AuthRoute } from './services/auth';
 
 function App() {
   const isSmallScreen = useMediaQuery({ maxWidth: size.mobile });
@@ -37,7 +37,11 @@ function App() {
           <Route path="/order" element={<OrderPage />} />
           <Route path="/delivery" element={<DeliveryPage />} />
           <Route path="/auth" element={<AuthPage />} />
-          <Route path="/welcome" element={<WelcomePage />} />
+          <Route path="/welcome" element={
+            <AuthRoute>
+              <WelcomePage />
+            </AuthRoute>
+          } />
         </Routes>
       </AuthProvider>
     </HashRouter>
