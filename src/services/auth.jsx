@@ -1,6 +1,8 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Navigate } from 'react-router-dom';
 import useToken from '../hooks/useToken';
+import { API_URL } from './config';
+import { loadUser } from './user';
 
 const AuthContext = React.createContext();
 
@@ -18,23 +20,13 @@ function AuthProvider({ children }) {
 
     React.useEffect(() => {
         const localToken = getTokenFromLocalStorage();
-        const loadUser = async () => {
-            if (localToken) {
-                fetch('http://localhost:5000/users/me', {
-                    method: 'GET',
-                    headers: { 'Authorization': `Bearer ${localToken}` }
-                })
-                    .then(data => data.json())
-                    .then(data => setUser(data.data))
-            }
-        }
-        loadUser();
-    }, [])
+        loadUser(localToken, setUser);
+    }, [loading])
 
     const signin = async (email, password) => {
         try {
             setLoading(true);
-            const response = await fetch('http://localhost:5000/auth/login', {
+            const response = await fetch(`${API_URL}/auth/login`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, password })
@@ -47,9 +39,7 @@ function AuthProvider({ children }) {
             }
 
             const { data } = await response.json();
-            const loggedUser = await getUser(data.token);
 
-            setUser(loggedUser);
             setTokenOnLocalStorage(data.token);
             setLoading(false);
             navigate('/welcome');
@@ -61,7 +51,7 @@ function AuthProvider({ children }) {
     const signup = async (first_name, last_name, username, email, password) => {
         try {
             setLoading(true);
-            const response = await fetch('http://localhost:5000/auth/register', {
+            const response = await fetch(`${API_URL}/auth/register`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ first_name, last_name, username, email, password })
@@ -91,27 +81,23 @@ function AuthProvider({ children }) {
         }
     }
 
-    const getUser = async (token) => {
-        const response = await fetch('http://localhost:5000/users/me', {
-            method: 'GET',
-            headers: { 'Authorization': `Bearer ${token}` }
-        })
-
-        if (!response.ok) {
-            throw new Error('Error al obtener el usuario.');
-        }
-
-        const { data } = await response.json();
-        return data;
-    }
-
-    const auth = { user, setUser, signin, signup, logout, error, loading };
+    const auth = { user, signin, signup, logout, error, loading };
 
     return (
         <AuthContext.Provider value={auth}>
             {children}
         </AuthContext.Provider>
     )
+}
+
+function AuthRoute(props) {
+    const auth = useAuth();
+
+    if (!auth.user) {
+        return <Navigate to="/auth" />
+    }
+
+    return props.children;
 }
 
 function useAuth() {
@@ -121,5 +107,6 @@ function useAuth() {
 
 export {
     AuthProvider,
+    AuthRoute,
     useAuth
 };
