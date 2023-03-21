@@ -70,7 +70,7 @@ export default function Footer({ language }) {
     return (
         <Container
             primary
-            padding
+            substyle={{padding: '50px 25px'}}
         >
             <FooterContainer>
                 <About>
