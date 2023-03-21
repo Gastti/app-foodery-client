@@ -33,7 +33,7 @@ export default function Subtitle({ children, fontsize }) {
             {text?.map(t => {
                 if (t.charAt(0) === t.charAt(t.length - 1) && t.charAt(0) === "&") {
                     let modt = t.slice(1, -1);
-                    return <span> {modt} </span>
+                    return <span key={modt}> {modt} </span>
                 } else {
                     return t + ' '
                 }
