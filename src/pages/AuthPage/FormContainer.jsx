@@ -4,7 +4,7 @@ import styled from "styled-components";
 const FormContainer = styled.div`
     flex-basis: 1;
     flex-grow: 1;
-    max-width: 430px;
+    max-width: 450px;
     padding: 15px;
     background-color:#fff;
     border-radius: 8px;
