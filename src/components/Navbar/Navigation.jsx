@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { useAuth } from '../../services/auth';
 import Button from '../Button';
-import Avatar from './Avatar';
+import UserMenuUI from './UserMenuUI';
 
 export default function Navigation() {
     const auth = useAuth();
@@ -14,6 +14,7 @@ export default function Navigation() {
     }, [auth.user])
 
     const routes = [
+        { label: 'Home', to: '/', private: false, publicOnly: false },
         { label: 'Browse', to: '/browse', private: false, publicOnly: false },
         { label: 'Order', to: '/order', private: false, publicOnly: false },
         { label: 'Delivery', to: '/delivery', private: false, publicOnly: false }
@@ -30,10 +31,18 @@ export default function Navigation() {
                 if (route.publicOnly && auth.user) return null;
                 if (route.private && !auth.user) return null;
 
-                return <li key={route.to}><NavLink to={route.to}>{route.label}</NavLink></li>
+                return (
+                    <li key={route.to}>
+                        <NavLink
+                            style={({ isActive }) => ({ color: isActive ? 'var(--c-primary)' : '' })}
+                            to={route.to}
+                        >
+                            {route.label}
+                        </NavLink>
+                    </li>
+                )
             })}
-            {isLoggedIn && <Avatar image={auth.user.image} />}
-            {isLoggedIn && <span>{auth.user.username}</span>}
+            {isLoggedIn && <UserMenuUI avatar={auth.user.image} name={auth.user.username} />}
             {isLoggedIn
                 ? <Button to='/' onClick={handleLogout} color='primary'>Logout</Button>
                 : <Button to='/auth' color='primary'>Sign In</Button>

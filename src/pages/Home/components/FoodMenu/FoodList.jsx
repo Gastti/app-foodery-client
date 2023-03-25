@@ -1,5 +1,6 @@
 import React from "react";
 import FoodCard from "./FoodCard";
+import FoodCardLoading from "./FoodCardLoading";
 import {
     FlexContainer,
     FoodListContent,
@@ -12,38 +13,38 @@ export default function FoodList({
     currentCategory,
     handleCategoryChange,
     products,
-    isSmallScreen
+    isSmallScreen,
+    loading
 }) {
     return (
         <FlexContainer>
             <FoodListContent>
-                {
-                    categories.map((category) => {
-                        return (
-                            <FoodLi
-                                key={category.name}
-                                onClick={() => handleCategoryChange(category.id)}
-                                active={currentCategory == category.id}
-                            >
-                                <Icon><img src={category.icon} /></Icon>
-                                <span>{!isSmallScreen && category.name}</span>
-                            </FoodLi>
-                        )
-                    })
-                }
-            </FoodListContent>
-            {
-                products.map((product) => {
+                {categories.map((category) => {
                     return (
-                        <FoodCard
-                            key={product.name}
-                            name={product.name}
-                            price={product.price}
-                            image={product.image}
-                        />
+                        <FoodLi
+                            key={category.name}
+                            onClick={() => handleCategoryChange(category.name)}
+                            active={currentCategory == category.name.toLowerCase()}
+                        >
+                            <Icon><img src={category.icon} /></Icon>
+                            <span>{!isSmallScreen && category.name}</span>
+                        </FoodLi>
                     )
-                })
-            }
+                })}
+            </FoodListContent>
+            {!loading && products.map((product) => {
+                return (
+                    <FoodCard
+                        key={product.name}
+                        name={product.name}
+                        price={product.price}
+                        image={product.image}
+                    />
+                )
+            })}
+            {loading && [...Array(2)].map((_, index) => (
+                <FoodCardLoading key={index} />
+            ))}
         </FlexContainer>
     )
 }

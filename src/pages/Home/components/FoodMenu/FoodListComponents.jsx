@@ -33,7 +33,7 @@ export const FoodListContent = styled.div`
     display: flex;
     flex-flow: column;
     gap: 10px;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
 
     ::-webkit-scrollbar {
         width: 8px;
@@ -76,7 +76,7 @@ export const FoodLi = styled.div`
     flex-basis: 0;
     flex-grow: 1;
     gap: 20px;
-    margin-right: 10px;
+    /* margin-right: 10px; */
 
     @media ${devices.tabletMax} {
         margin-right: 0px;
@@ -102,7 +102,14 @@ export const Icon = styled.div`
         width: 100%;
     }
 
+    @media (max-width: 920px) {
+        width: 25px;
+        height: 25px;
+    }
+
     @media ${devices.tabletMax} {
+        width: 40px;
+        height: 40px;
         margin-right: 0px;
     }
 `;

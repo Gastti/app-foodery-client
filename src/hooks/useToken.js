@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function useToken() {
     const setTokenOnLocalStorage = (token) => {
         localStorage.setItem('token', token);

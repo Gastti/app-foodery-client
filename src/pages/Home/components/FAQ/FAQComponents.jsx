@@ -21,7 +21,6 @@ export const QueriesContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-width: 400px;
-    width: 400px;
+    max-width: 350px;
     gap: 20px;
 `;
