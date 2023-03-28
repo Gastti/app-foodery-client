@@ -11,12 +11,12 @@ const StyledNavLink = styled(NavLink)`
         : "linear-gradient(90deg, #c6c6c6 20%, #dbdbdb 100%)"};
     color: #fff;
     border: none;
-    border-radius: 7px;
+    border-radius: 14px;
     cursor: pointer;
     font-size: 1rem;
     font-family: var(--c-ubuntu);
     font-weight: 500;
-    padding: ${props => props.icon ? "0px" : "12px 30px"};
+    padding: ${props => props.icon ? "0px" : "12px 60px"};
     transition: all .3s;
     width: ${props => props.icon ? "45px" : ""};
     height: ${props => props.icon ? "45px" : ""};
