@@ -27,7 +27,7 @@ const SubtitleContainer = styled.h2`
 
 export default function Subtitle({ children, fontsize }) {
     const text = children?.split(' ');
-
+    
     return (
         <SubtitleContainer fontsize={fontsize}>
             {text?.map(t => {

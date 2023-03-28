@@ -27,8 +27,8 @@ export default function AuthPage() {
                 flex='column'
                 align='center'
                 justify='center'
-                style={{ height: 'calc(100vh - 228.39px)' }}
-                substyle={{ flexFlow: 'row wrap', gap: '50px' }}
+                style={{ height: '100%' }}
+                substyle={{ flexFlow: 'row wrap', gap: '50px', marginTop: '120px' }}
             >
                 <AuthHeadboard />
                 {activeForm == 'signin'

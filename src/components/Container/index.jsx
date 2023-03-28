@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { devices } from '../../config/devices';
 
 const StyledContainer = styled.div`
-    background-color: ${props => props.primary ? '#f4f4fc' : 'transparent'};
+    background-color: ${props => props.primary ? '#f1f2f4' : 'transparent'};
     display: grid;
     place-items: center;
     width: 100%;

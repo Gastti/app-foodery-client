@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
-import { useMediaQuery } from 'react-responsive';
-import { size } from './config/devices';
 import Home from './pages/Home/Home';
 import Navbar from './components/Navbar';
 import BrowsePage from './pages/BrowsePage/BrowsePage';
@@ -10,40 +8,36 @@ import DeliveryPage from './pages/DeliveryPage/DeliveryPage';
 import AuthPage from './pages/AuthPage/AuthPage';
 import WelcomePage from './pages/WelcomePage/WelcomePage';
 import { AuthProvider, AuthRoute } from './services/auth';
+import { ConfigProvider } from './contexts/ConfigContext';
 
 function App() {
-  const isSmallScreen = useMediaQuery({ maxWidth: size.mobile });
-  const isTabletScreen = useMediaQuery({ maxWidth: size.tablet });
-  const [language, setLanguage] = useState('')
-
-  useEffect(() => {
-    setLanguage(navigator.language || 'en-US')
-  }, [])
-
   return (
     <HashRouter>
-      <AuthProvider>
-        <Navbar isTabletScreen={isTabletScreen} />
-        <Routes>
-          <Route path="/" element={
-            <Home
-              isSmallScreen={isSmallScreen}
-              isTabletScreen={isTabletScreen}
-              language={language}
-            />
-          } />
+      <ConfigProvider>
+        <AuthProvider>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={
+              <Home />
+            } />
 
-          <Route path="/browse" element={<BrowsePage />} />
-          <Route path="/order" element={<OrderPage />} />
-          <Route path="/delivery" element={<DeliveryPage />} />
-          <Route path="/auth" element={<AuthPage />} />
-          <Route path="/welcome" element={
-            <AuthRoute>
-              <WelcomePage />
-            </AuthRoute>
-          } />
-        </Routes>
-      </AuthProvider>
+            <Route path="/browse" element={<BrowsePage />} />
+            <Route path="/order" element={<OrderPage />} />
+            <Route path="/delivery" element={<DeliveryPage />} />
+            <Route path="/auth" element={<AuthPage />} />
+            <Route path="/welcome" element={
+              <AuthRoute>
+                <WelcomePage />
+              </AuthRoute>
+            } />
+            <Route path="/profile" element={
+              <AuthRoute>
+                <WelcomePage />
+              </AuthRoute>
+            } />
+          </Routes>
+        </AuthProvider>
+      </ConfigProvider>
     </HashRouter>
   )
 }
