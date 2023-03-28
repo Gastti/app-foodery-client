@@ -5,7 +5,7 @@ import { useProducts } from "../../../../utils/useProducts";
 import FoodHeader from "./FoodHeader";
 import { loadProductsCategory } from "../../../../services/products";
 
-export default function FoodMenu({ isSmallScreen, isTabletScreen }) {
+export default function FoodMenu({ isMobile, isTablet }) {
     const { categories, nextPage, prevPage } = useProducts();
     const [currentCategory, setCurrentCategory] = useState('burger');
     const [products, setProducts] = useState([]);
@@ -24,7 +24,7 @@ export default function FoodMenu({ isSmallScreen, isTabletScreen }) {
 
         setTimeout(() => {
             getProducts();
-        }, 5000)
+        }, 2000)
 
         if (page > totalPages) {
             setPage(1);
@@ -45,14 +45,14 @@ export default function FoodMenu({ isSmallScreen, isTabletScreen }) {
                 setPage={setPage}
                 prevPage={prevPage}
                 nextPage={nextPage}
-                isTabletScreen={isTabletScreen}
+                isTablet={isTablet}
             />
             <FoodList
                 categories={categories}
                 currentCategory={currentCategory}
                 handleCategoryChange={handleCategoryChange}
                 products={products}
-                isSmallScreen={isSmallScreen}
+                isMobile={isMobile}
                 loading={loading}
             />
         </Container>

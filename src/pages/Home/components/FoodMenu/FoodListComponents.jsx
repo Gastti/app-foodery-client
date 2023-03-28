@@ -7,7 +7,7 @@ export const FlexContainer = styled.div`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    gap: 30px;
+    gap: 10px;
 
     & > div {
         flex-basis: 0;

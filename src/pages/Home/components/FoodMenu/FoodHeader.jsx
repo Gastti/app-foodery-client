@@ -35,7 +35,7 @@ export default function FoodHeader({
     setPage,
     prevPage,
     nextPage,
-    isTabletScreen
+    isTablet
 }) {
     return (
         <Container>
@@ -44,7 +44,7 @@ export default function FoodHeader({
                 <p>{foodMenuContent.paragraph}</p>
             </div>
             {
-                !isTabletScreen &&
+                !isTablet &&
                 <FoodNavigation
                     page={page}
                     setPage={setPage}

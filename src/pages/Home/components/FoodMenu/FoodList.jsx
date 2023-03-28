@@ -13,7 +13,7 @@ export default function FoodList({
     currentCategory,
     handleCategoryChange,
     products,
-    isSmallScreen,
+    isMobile,
     loading
 }) {
     return (
@@ -27,7 +27,7 @@ export default function FoodList({
                             active={currentCategory == category.name.toLowerCase()}
                         >
                             <Icon><img src={category.icon} /></Icon>
-                            <span>{!isSmallScreen && category.name}</span>
+                            <span>{!isMobile && category.name}</span>
                         </FoodLi>
                     )
                 })}

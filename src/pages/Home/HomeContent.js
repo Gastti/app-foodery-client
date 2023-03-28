@@ -38,7 +38,7 @@ export const foodMenuContent = {
 }
 
 export const CUSTOMERS_CONTENT_EN = {
-    title: 'Custumer Testimonial',
+    title: 'Customer Testimonial',
     subtitle: 'What &Costumer& Say About Us',
     paragraph: 'Lorem ipsum dolor sit amet, consectetur.',
     button_placeholder: 'Read More'
