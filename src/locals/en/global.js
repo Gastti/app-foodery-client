@@ -1,3 +1,8 @@
+import SettingsIcon from '@mui/icons-material/Settings';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import ReportOutlinedIcon from '@mui/icons-material/ReportOutlined';
+import LogoutIcon from '@mui/icons-material/Logout';
+
 export const SUBSCRIPTION_CARD_TEXT_EN = {
     title: 'Become a member',
     message: 'Become a &member& and get all our &services&',
@@ -26,3 +31,10 @@ export const FOOTER_CONTENT_EN = {
         ]
     }
 }
+
+export const USER_NAVIGATION_OPTIONS_EN = [
+    { label: 'Account Settings', to: '/account/settings', icon: SettingsIcon },
+    { label: 'Dark Mode', to: false, icon: DarkModeIcon },
+    { label: 'Report an Issue', to: '/report', icon: ReportOutlinedIcon },
+    { label: 'Logout', to: false, icon: LogoutIcon }
+]
