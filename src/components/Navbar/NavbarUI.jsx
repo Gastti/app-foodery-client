@@ -22,7 +22,7 @@ const NavbarUIContent = styled.div`
     z-index: 10;
     background-color: #fff;
     padding: 15px 25px;
-    height: 120px;
+    height: 100px;
 `
 function NavbarUI({ children }) {
     return (

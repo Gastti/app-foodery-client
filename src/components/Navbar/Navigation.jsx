@@ -7,8 +7,10 @@ import UserMenu from '../UserMenu';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
+import useCart from '../../hooks/useCart';
 
 export default function Navigation({ isMobile }) {
+    const { toggleCart, opened } = useCart();
     const auth = useAuth();
     const [isLoggedIn, setIsLoggedIn] = React.useState(false);
 
@@ -16,29 +18,9 @@ export default function Navigation({ isMobile }) {
         setIsLoggedIn(Boolean(auth.user))
     }, [auth.user])
 
-    const handleLogout = () => {
-        auth.logout();
-        setIsLoggedIn(false);
-    }
-
     return (
         <StyledMenu>
-            {routes.map((route) => {
-                if (route.publicOnly && auth.user) return null;
-                if (route.private && !auth.user) return null;
-                if (route.mobileOnly && !isMobile) return null;
-                
-                return (
-                    <li key={route.to}>
-                        <NavLink
-                            style={({ isActive }) => ({ color: isActive ? 'var(--c-primary)' : '' })}
-                            to={route.to}
-                            >
-                            {route.icon}
-                        </NavLink>
-                    </li>
-                )
-            })}
+            {isLoggedIn && <a className='cart-button' onClick={toggleCart}><ShoppingCartOutlinedIcon /></a>}
             {(!isLoggedIn && !isMobile) && <Button to='/auth' color='primary'>Sign In</Button>}
             {isLoggedIn && <UserMenu avatar={auth.user?.image} name={auth.user?.username} />}
         </StyledMenu >
@@ -57,7 +39,7 @@ const routes = [
     {
         label: 'Cart',
         icon: <ShoppingCartOutlinedIcon />,
-        to: '/cart',
+        to: false,
         private: true,
         publicOnly: false,
         mobileOnly: false
@@ -80,12 +62,13 @@ const StyledMenu = styled.ul`
     margin: 0;
     padding: 0;
 
-    & > li > a {
+    & > a.cart-button {
         color: var(--c-font-normal);
         display: flex;
-    }
+        cursor: pointer;
 
-    & > li > a:hover {
-        color: var(--c-primary)
+        :hover {
+            color: var(--c-primary)
         }
+    }
 `
