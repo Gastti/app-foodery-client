@@ -19,11 +19,6 @@ const StyledContent = styled.div`
     box-sizing: border-box;
     position: relative;
 
-    @media ${devices.mobile} {
-        width: 100%;
-        max-width: 100%;
-    }
-
     @media ${devices.desktop} {
         width: 1200px;
         max-width: 1200px;

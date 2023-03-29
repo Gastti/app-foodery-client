@@ -68,10 +68,7 @@ export default function Footer({ language }) {
 
     const { about, pages, services } = content;
     return (
-        <Container
-            primary
-            substyle={{padding: '50px 25px'}}
-        >
+        <Container style={{paddingTop: '100px'}}>
             <FooterContainer>
                 <About>
                     <Logo />

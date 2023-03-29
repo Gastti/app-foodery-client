@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
+import { loadProductsByName } from '../../services/products';
+import { useNavigate } from 'react-router-dom';
 
 const Container = styled.div`
     display: flex;
@@ -8,7 +10,11 @@ const Container = styled.div`
     max-width: 500px;
     position: relative;
 
-    & > input {
+    & > form {
+        width: 100%;
+    }
+
+    & > form > input {
         width: 100%;
         background-color: transparent;
         border: 1px solid rgba(0, 0, 0, 0.0);
@@ -26,7 +32,7 @@ const Container = styled.div`
         }
     }
 
-    & > button {
+    & > form > button {
         display: flex;
         padding: 10px;
         position: absolute;
@@ -45,10 +51,18 @@ const Container = styled.div`
 `
 
 export default function SearchBar() {
+    const navigate = useNavigate();
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        navigate(`/search/${e.target[0].value}`);
+    }
+
     return (
         <Container>
-            <input type="text" placeholder='What food you want?' />
-            <button><SearchOutlinedIcon /></button>
+            <form onSubmit={handleSubmit}>
+                <input type="text" placeholder='What food you want?' />
+                <button type='submit'><SearchOutlinedIcon /></button>
+            </form>
         </Container>
     )
 }
