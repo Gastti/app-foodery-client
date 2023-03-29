@@ -27,20 +27,20 @@ export default function Navigation({ isMobile }) {
                 if (route.publicOnly && auth.user) return null;
                 if (route.private && !auth.user) return null;
                 if (route.mobileOnly && !isMobile) return null;
-
+                
                 return (
                     <li key={route.to}>
                         <NavLink
                             style={({ isActive }) => ({ color: isActive ? 'var(--c-primary)' : '' })}
                             to={route.to}
-                        >
+                            >
                             {route.icon}
                         </NavLink>
                     </li>
                 )
             })}
-            {isLoggedIn && <UserMenu avatar={auth.user.image} name={auth.user.username} />}
             {(!isLoggedIn && !isMobile) && <Button to='/auth' color='primary'>Sign In</Button>}
+            {isLoggedIn && <UserMenu avatar={auth.user?.image} name={auth.user?.username} />}
         </StyledMenu >
     )
 }

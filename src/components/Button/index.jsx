@@ -25,7 +25,7 @@ const StyledNavLink = styled(NavLink)`
     &:hover {
         color: #fff;
         background: ${props => props.color == 'primary'
-        ? "linear-gradient(90deg, rgba(255,107,0,1) 50%, #ff9100 100%)"
+        ? "var(--g-primary-h)"
         : "linear-gradient(90deg, #c6c6c6 50%, #dbdbdb 100%)"};
     }
 `;

@@ -5,9 +5,12 @@ import { USER_NAVIGATION_OPTIONS_ES } from '../../locals/es/global';
 import { useConfig } from '../../contexts/ConfigContext';
 import Avatar from './Avatar';
 import { NavLink } from 'react-router-dom';
+import LogoutIcon from '@mui/icons-material/Logout';
+import { useAuth } from '../../services/auth';
 
 export default function UserMenuUI({ avatar, name, opened, handleClick }) {
     const { isMobile, language } = useConfig();
+    const { logout } = useAuth();
     const USER_NAVIGATION = language == 'es-ES'
         ? USER_NAVIGATION_OPTIONS_ES
         : USER_NAVIGATION_OPTIONS_EN;
@@ -17,12 +20,13 @@ export default function UserMenuUI({ avatar, name, opened, handleClick }) {
             <Avatar image={avatar} onClick={handleClick} />
             {(opened && !isMobile) &&
                 <UserNavigation>
-                    {USER_NAVIGATION.map(option => (
+                    {USER_NAVIGATION.map((option, index) => (
                         <NavLink key={option.label} to={option.to} onClick={handleClick}>
                             <option.icon />
                             {option.label}
                         </NavLink>
                     ))}
+                    <a onClick={logout}><LogoutIcon />Logout</a>
                 </UserNavigation>
             }
         </UserMenuContainer>
@@ -64,6 +68,7 @@ const UserNavigation = styled.div`
         border-bottom: 1px solid #e8e8e8;
         color: #242424;
         font-weight: 400;
+        font-size: 0.9rem;
 
         :hover {
             background-color: #f6f6f6;
@@ -71,7 +76,7 @@ const UserNavigation = styled.div`
 
         & > svg {
             margin-right: 10px;
-            color: #c0c0c0;
+            color: #e1e1e1;
         }
     }
 `
