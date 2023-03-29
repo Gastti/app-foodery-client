@@ -36,7 +36,6 @@ export default function AuthPage() {
                     : <SignUpForm handleActiveForm={handleActiveForm} />
                 }
             </Container>
-            <Footer />
         </>
     )
 }
