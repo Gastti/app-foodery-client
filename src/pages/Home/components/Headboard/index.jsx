@@ -1,9 +1,7 @@
 import React, { useEffect, useState, useMemo } from "react";
 import Container from "../../../../components/Container";
-import HeadboardContent from "./HeadboardContent";
 import { loadPopularProducts } from "../../../../services/products";
 import MainProduct from "./MainProduct";
-import ProductCard from "./ProductCard";
 import Slider from "../../../../components/Slider";
 
 export default function Headboard() {
@@ -26,9 +24,6 @@ export default function Headboard() {
 
         getProducts();
     }, []);
-
-    console.log(popularProducts);
-    console.log(isLoading);
 
     return (
         <Container primary padding substyle={{ paddingTop: '140px' }}>

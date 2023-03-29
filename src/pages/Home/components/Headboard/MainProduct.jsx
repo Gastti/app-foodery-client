@@ -4,26 +4,25 @@ import Subtitle from '../../../../components/Subtitle';
 import { devices } from '../../../../config/devices';
 
 export default function MainProduct({ product }) {
-    const { image, name, desc, price } = product;
     return (
         <MainProductContainer>
             <div className='product-info'>
-                <h2>{name}</h2>
+                <h2>{product?.name}</h2>
                 <h1>Wait a minute for delicious.</h1>
-                <p>{desc}</p>
+                <p>{product?.desc}</p>
                 <div className='product-info-order'>
                     <Button color='primary'>Order Now</Button>
                     <p>
                         PRICE
-                        <span>${price}</span>
+                        <span>${product?.price}</span>
                     </p>
                 </div>
             </div>
             <div className='product-image-mobile'>
-                <img src={image} />
+                <img src={product?.image} />
             </div>
             <div className='product-image'>
-                <img src={image} />
+                <img src={product?.image} />
             </div>
         </MainProductContainer>
     )

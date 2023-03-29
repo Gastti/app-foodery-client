@@ -16,10 +16,7 @@ export default function Customers({ language }) {
     const REVIEWS = CUSTOMERS_REVIEWS;
 
     return (
-        <Container
-            primary
-            padding
-        >
+        <Container>
             <CustomersContainer>
                 <CustomersHeader
                     title={CONTENT.title}

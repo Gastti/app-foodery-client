@@ -27,7 +27,6 @@ export default function Home() {
             <Container style={{ marginBottom: '100px' }}>
                 <SubscriptionCard language={language} />
             </Container>
-            <Footer language={language} />
         </ConfigProvider>
     )
 }

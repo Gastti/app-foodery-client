@@ -7,10 +7,8 @@ const Container = styled.div`
     flex-direction: column;
     background-color: #fff;
     border-radius: 15px;
-    box-shadow: 0px 10px 40px #00000022;
     overflow: hidden;
     min-width: 250px;
-    max-width: 500px;
     flex-basis: 0;
     flex-grow: 1;
 
@@ -41,13 +39,14 @@ const Container = styled.div`
 
         h4 {
             font-size: 2rem;
+            font-weight: 500;
             font-family: var(--f-ubuntu);
             margin: 10px 0px;
         }
 
-        button {
+        a {
             bottom: 0;
-            margin-top: 40px;
+            margin-top: 20px;
         }
     }
 `

@@ -9,10 +9,10 @@ const Container = styled.div`
     justify-content: space-evenly;
     min-width: 230px;
     min-height: 320px;
+    flex-grow: 1;
     padding: 20px;
     border-radius: 15px;
     background: #fff;
-    box-shadow: 0px 10px 40px #00000022;
     position: relative;
     text-align: center;
 
