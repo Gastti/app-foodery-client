@@ -6,8 +6,36 @@ const loadProducts = async (cb, limit = 25, page = 1) => {
         .then(data => cb(data.data))
 }
 
+const loadProductById = async (id) => {
+    try {
+        const response = await fetch(`${API_URL}/products/find/${id}`);
+
+        if (!response.ok) {
+            console.log('Error en loadProductById');
+            return [];
+        }
+
+        const { data } = await response.json();
+        return data;
+    } catch (error) {
+        console.log('Error en loadPopularProducts');
+        return [];
+    }
+}
+
 const loadProductsCategory = async (category, limit, page) => {
     const response = await fetch(`${API_URL}/products/search?category=${category}&limit=${limit}&page=${page}`)
+
+    if (!response.ok) {
+        console.log('Error en loadProductsQuery');
+    }
+
+    const { data } = await response.json();
+    return data;
+}
+
+const loadProductsByName = async (name, limit, page) => {
+    const response = await fetch(`${API_URL}/products/search?name=${name}&limit=${limit}&page=${page}`)
 
     if (!response.ok) {
         console.log('Error en loadProductsQuery');
@@ -36,6 +64,8 @@ const loadPopularProducts = async () => {
 
 export {
     loadProducts,
+    loadProductById,
     loadProductsCategory,
+    loadProductsByName,
     loadPopularProducts
 }
