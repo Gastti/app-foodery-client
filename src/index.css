@@ -9,7 +9,7 @@
 
   color-scheme: light dark;
   color: #222222;
-  background-color: #fff;
+  background-color: #f3f3f3;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -24,8 +24,8 @@
   --c-font-normal-h: #000000;
   --f-ubuntu: 'Ubuntu', sans-serif;
   --f-playfair: 'Playfair Display', serif;
-  --g-primary: linear-gradient(90deg, rgba(255,107,0,1) 20%, #ff9100 100%);
-  --g-primary-h: linear-gradient(90deg, rgba(255,107,0,1) 50%, #ff9100 100%);
+  --g-primary: linear-gradient(90deg, #ff7b00 20%, rgba(255, 107, 0, 1) 100%);
+  --g-primary-h: linear-gradient(90deg, #ff6a00 20%, #ff6a00 100%);
   --g-default: linear-gradient(90deg, #c6c6c6 20%, #dbdbdb 100%);
   --g-default-h: linear-gradient(90deg, #c6c6c6 50%, #dbdbdb 100%);
 }

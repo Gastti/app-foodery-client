@@ -17,7 +17,7 @@ export default function FoodMenu({ isMobile, isTablet }) {
         const getProducts = async () => {
             const data = await loadProductsCategory(currentCategory, 2, page);
             if (data) setLoading(false)
-            console.log(loading);
+            
             setProducts(data?.products)
             setTotalPages(data?.pages.total);
         }

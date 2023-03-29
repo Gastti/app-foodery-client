@@ -16,11 +16,11 @@ export default function Home() {
     return (
         <ConfigProvider>
             <Headboard />
-            <Steps />
-            <FoodMenu
+            {/* <Steps /> */}
+            {/* <FoodMenu
                 isTablet={isTablet}
                 isMobile={isMobile}
-            />
+            /> */}
             <Customers language={language} />
             <Articles language={language} />
             <FAQ language={language} />
