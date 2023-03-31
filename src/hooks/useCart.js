@@ -1,32 +1,32 @@
-import React, { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import { useConfig } from '../contexts/ConfigContext';
+import { loadCart, addProductToCart } from '../services/cart';
+import { useAuth } from '../services/auth';
 
 export default function useCart() {
-    const [cartItems, setCartItems] = useState([]);
-    const [opened, setOpened] = useState(false);
+    const auth = useAuth();
+    const { isCartOpen } = useConfig();
+    const [states, setStates] = useState({ loading: true, error: false });
+    const [shoppingCart, setShoppingCart] = useState({ items: [], total: 0 })
 
-    const addToCart = (item) => {
-        setCartItems([...cartItems, item]);
+    const getCart = useCallback(async () => {
+        try {
+            const data = await loadCart(auth.token);
+            setShoppingCart({ items: data.cart_items, total: data.total });
+        } catch (error) {
+            console.log(error);
+        }
+    }, [auth.token]);
+
+    useEffect(() => {
+        getCart();
+        console.log('RENDER');
+    }, [getCart])
+
+    const addToCart = async (product_id, quantity) => {
+        const data = await addProductToCart(auth.token, { product_id, quantity });
+        console.log(data);
     };
 
-    const removeFromCart = (itemIndex) => {
-        const newCartItems = [...cartItems];
-        newCartItems.splice(itemIndex, 1);
-        setCartItems(newCartItems);
-    };
-
-    // const clearCart = () => {
-    //     setCartItems([]);
-    // };
-
-    const getCartTotal = () => {
-        return cartItems.reduce((total, item) => total + item.price, 0);
-    };
-
-    const toggleCart = () => {
-        setOpened(!opened);
-        console.log('clicked');
-        console.log(opened);
-    }
-
-    return { cartItems, addToCart, removeFromCart, getCartTotal, opened, toggleCart };
+    return { shoppingCart, addToCart };
 }
