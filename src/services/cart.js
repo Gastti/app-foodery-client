@@ -1,6 +1,6 @@
 import { API_URL } from './config';
 
-const loadCart = async (token) => {
+const fetchCart = async (token) => {
     try {
         if (!token) {
             return null
@@ -19,8 +19,7 @@ const loadCart = async (token) => {
         }
 
         const { data } = await response.json();
-        console.log('REQ DONE');
-        console.log(data);
+        console.log('Services[Cart] - fetchCart: Done!');
         return data;
     } catch (error) {
         console.log(error);
@@ -53,4 +52,29 @@ const addProductToCart = async (token, product) => {
     }
 }
 
-export { loadCart, addProductToCart }
+const removeProductFromCart = async (token, cart_item_id) => {
+    try {
+        const response = await fetch(`${API_URL}/cart/deleteitem`, {
+            method: 'DELETE',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ cart_item_id })
+        });
+
+        if (!response.ok) {
+            console.log('Error on removeProductFromCart');
+            return null;
+        }
+
+        const data = await response.json();
+        console.log(data);
+        return data;
+    } catch (error) {
+        console.log('Error on removeProductFromCart');
+        console.log(error);
+    }
+}
+
+export { fetchCart, addProductToCart, removeProductFromCart }
