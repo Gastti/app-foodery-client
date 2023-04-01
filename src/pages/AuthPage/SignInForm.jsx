@@ -3,12 +3,12 @@ import FormContainer from './FormContainer';
 import { Formik, Form } from 'formik'
 import CustomField from '../../components/CustomField';
 import FormButton from '../../components/FormButton';
-import { useAuth } from '../../services/auth';
 import Divider from '../../components/Divider';
 import CustomFormError from '../../components/CustomFormError';
+import { useAuth } from '../../hooks/useAuth';
 
 export default function SignInForm({ handleActiveForm }) {
-    const auth = useAuth();
+    const { login, loading, error } = useAuth();
 
     return (
         <FormContainer>
@@ -39,7 +39,7 @@ export default function SignInForm({ handleActiveForm }) {
                     return errors;
                 }}
                 onSubmit={(values, { resetForm }) => {
-                    auth.signin(values.email, values.password)
+                    login(values.email, values.password)
                 }}
             >
                 {({ errors, touched }) => (
@@ -56,13 +56,13 @@ export default function SignInForm({ handleActiveForm }) {
                             placeholder="Password"
                             error={errors.password}
                         />
-                        {auth.error && <CustomFormError style={{ marginBottom: '15px' }} message='Email/Password are incorrect' />}
+                        {error && <CustomFormError style={{ marginBottom: '15px' }} message='Email/Password are incorrect' />}
                         <FormButton
                             type='submit'
                             color='primary'
                             size='lg'
                             align='center'
-                            disabled={auth.loading}
+                            disabled={loading}
                         >
                             Sign In
                         </FormButton>
