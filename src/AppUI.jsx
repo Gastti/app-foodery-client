@@ -14,16 +14,21 @@ import Product from './pages/Product';
 import ShoppingCart from './components/ShoppingCart';
 import { useConfig } from './contexts/ConfigContext';
 import Modal from './components/Modal';
+import { useAuth } from './hooks/useAuth';
 
 export default function AppUI() {
     const { isCartOpen } = useConfig();
+    const { user } = useAuth();
+
     return (
         <>
-            <Navbar />
-            
-            <Modal>
-                <ShoppingCart />
-            </Modal>
+            <Navbar user={user} />
+
+            {isCartOpen && (
+                <Modal>
+                    <ShoppingCart />
+                </Modal>
+            )}
 
             <Routes>
                 <Route path="/" element={
