@@ -6,7 +6,7 @@ import { useConfig } from '../../contexts/ConfigContext';
 import Avatar from './Avatar';
 import { NavLink } from 'react-router-dom';
 import LogoutIcon from '@mui/icons-material/Logout';
-import { useAuth } from '../../services/auth';
+import { useAuth } from '../../hooks/useAuth';
 
 export default function UserMenuUI({ avatar, name, opened, handleClick }) {
     const { isMobile, language } = useConfig();
