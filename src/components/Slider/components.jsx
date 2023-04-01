@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import AddIcon from '@mui/icons-material/Add';
+import SquareButton from "../SquareButton";
 
 export const StyledContainer = styled.div`
     display: flex;
@@ -122,25 +123,6 @@ export const SliderItemStyled = styled.div`
                     font-size: 1.2rem;
                 }
             }
-
-            button {
-                padding: 5px;
-                border-radius: 15px;
-                border: none;
-                margin-left: 10px;
-                transition: all .2s;
-                background-color: var(--c-primary);
-                background: var(--g-primary);
-            
-                :hover {
-                    transform: scale(1.1);
-                    background: var(--g-primary-h);
-                }
-
-                :active {
-                    transform: scale(1);
-                }
-            }
         }
 
         @media (max-width: 440px) {
@@ -166,7 +148,7 @@ function SliderItem({ data }) {
                         <br />
                         <span>${data?.price}</span>
                     </p>
-                    <button><AddIcon /></button>
+                    <SquareButton primary icon={<AddIcon />} />
                 </div>
             </div>
         </SliderItemStyled >
