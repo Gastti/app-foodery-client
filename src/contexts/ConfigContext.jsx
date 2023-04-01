@@ -7,13 +7,25 @@ const ConfigContext = createContext();
 function ConfigProvider({ children }) {
     const isMobile = useMediaQuery({ maxWidth: size.mobile });
     const isTablet = useMediaQuery({ maxWidth: size.tablet });
+    const [isCartOpen, setIsCartOpen] = useState(false);
     const [language, setLanguage] = useState('')
 
     useEffect(() => {
-        setLanguage(navigator.language || 'en-US')
+        setLanguage(navigator.language || 'en-US');
     }, [])
 
-    const config = { isMobile, isTablet, language }
+    const handleCartState = () => {
+        setIsCartOpen(!isCartOpen);
+    }
+
+    const config = {
+        isMobile,
+        isTablet,
+        language,
+        isCartOpen,
+        handleCartState
+    }
+
     return (
         <ConfigContext.Provider value={config}>
             {children}
