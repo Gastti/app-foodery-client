@@ -1,19 +1,26 @@
-export default function useToken() {
-    const setTokenOnLocalStorage = (token) => {
-        localStorage.setItem('token', token);
+import { useLocalStorage } from './useLocalStorage';
+
+function useToken() {
+    const { setItem, getItem, removeItem } = useLocalStorage();
+
+    const setToken = (token) => {
+        setItem('token', token);
     }
 
-    const removeTokenFromLocalStorage = () => {
-        localStorage.removeItem('token');
+    const removeToken = () => {
+        removeItem('token');
     }
 
-    const getTokenFromLocalStorage = () => {
-        return localStorage.getItem('token') || ''
+    const getToken = () => {
+        const token = getItem('token')
+        return token;
     }
 
     return {
-        setTokenOnLocalStorage,
-        removeTokenFromLocalStorage,
-        getTokenFromLocalStorage
+        setToken,
+        removeToken,
+        getToken
     }
 }
+
+export { useToken };

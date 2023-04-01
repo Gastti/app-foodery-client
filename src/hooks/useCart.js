@@ -1,32 +1,19 @@
-import { useState, useEffect, useCallback } from 'react';
-import { useConfig } from '../contexts/ConfigContext';
-import { loadCart, addProductToCart } from '../services/cart';
-import { useAuth } from '../services/auth';
+import { addProductToCart, removeProductFromCart } from '../services/cart';
+import { useAuth } from '../hooks/useAuth';
 
-export default function useCart() {
-    const auth = useAuth();
-    const { isCartOpen } = useConfig();
-    const [states, setStates] = useState({ loading: true, error: false });
-    const [shoppingCart, setShoppingCart] = useState({ items: [], total: 0 })
-
-    const getCart = useCallback(async () => {
-        try {
-            const data = await loadCart(auth.token);
-            setShoppingCart({ items: data.cart_items, total: data.total });
-        } catch (error) {
-            console.log(error);
-        }
-    }, [auth.token]);
-
-    useEffect(() => {
-        getCart();
-        console.log('RENDER');
-    }, [getCart])
+function useCart() {
+    const { token } = useAuth();
 
     const addToCart = async (product_id, quantity) => {
-        const data = await addProductToCart(auth.token, { product_id, quantity });
-        console.log(data);
+        const data = await addProductToCart(token, { product_id, quantity });
     };
 
-    return { shoppingCart, addToCart };
+    const removeFromCart = async (cart_item_id) => {
+        const data = await removeProductFromCart(token, cart_item_id);
+        console.log(data);
+    }
+
+    return { addToCart, removeFromCart };
 }
+
+export { useCart };
