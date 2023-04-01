@@ -2,6 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 export default function CartSummary({ subtotal, shipping_cost }) {
+    let total = subtotal + shipping_cost;
+    total = Number(total.toFixed(2))
+
     return (
         <CartSummaryContainer>
             <p>
@@ -14,7 +17,7 @@ export default function CartSummary({ subtotal, shipping_cost }) {
             </p>
             <p>
                 <span>Total</span>
-                <span>${subtotal + shipping_cost}</span>
+                <span>${total}</span>
             </p>
         </CartSummaryContainer>
     )
