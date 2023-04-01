@@ -91,3 +91,7 @@ h1 {
 input:focus {
   outline: none;
 }
+
+.disable-scroll {
+  overflow: hidden;
+}
