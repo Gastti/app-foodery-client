@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate, Navigate } from 'react-router-dom';
-import useToken from '../hooks/useToken';
+import { useToken } from '../hooks/useToken';
 import { API_URL } from './config';
 import { loadUser } from './user';
 
@@ -17,10 +17,12 @@ function AuthProvider({ children }) {
     const [user, setUser] = React.useState(null);
     const [error, setError] = React.useState(false);
     const [loading, setLoading] = React.useState(false);
+    const [token, setToken] = React.useState('');
 
     React.useEffect(() => {
         const localToken = getTokenFromLocalStorage();
         loadUser(localToken, setUser);
+        setToken(localToken);
     }, [loading])
 
     const signin = async (email, password) => {
@@ -84,7 +86,7 @@ function AuthProvider({ children }) {
         }
     }
 
-    const auth = { user, signin, signup, logout, error, loading };
+    const auth = { user, token, signin, signup, logout, error, loading };
 
     return (
         <AuthContext.Provider value={auth}>
