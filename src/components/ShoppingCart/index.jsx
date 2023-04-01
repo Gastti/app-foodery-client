@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import useCart from '../../hooks/useCart';
 import { CartBackground, CartBody, CartContainer, CartHeader } from './components';
 import { useConfig } from '../../contexts/ConfigContext';
 import CartItem from './CartItem';
@@ -7,10 +6,14 @@ import SquareButton from '../SquareButton';
 import CloseIcon from '@mui/icons-material/Close';
 import CartSummary from '../CartSummary';
 import Button from '../Button';
+import { useAuth } from '../../hooks/useAuth';
+import { useCart } from '../../hooks/useCart';
 
 export default function ShoppingCart() {
+    const { removeFromCart } = useCart();
     const { handleCartState } = useConfig();
-    const { shoppingCart } = useCart();
+    const { cart } = useAuth();
+    const cartProducts = cart ? cart.items : [];
 
     const handleCartContainerClick = (e) => {
         e.stopPropagation();
@@ -25,26 +28,26 @@ export default function ShoppingCart() {
                             <h2>Order</h2>
                             <SquareButton icon={<CloseIcon />} onClick={handleCartState} size='2rem' />
                         </CartHeader>
-                        {/* <CartBody>
-                            {cartItems.length === 0 && <p>Your shopping cart is empty.</p>}
-                            {cartItems.length > 0 && cartItems.map((item) => {
-
+                        <CartBody>
+                            {cartProducts.length === 0 && <p>Your shopping cart is empty.</p>}
+                            {cartProducts.length > 0 && cartProducts.map((item) => {
                                 return (
                                     <CartItem
-                                        image={item.product.image}
-                                        name={item.product.name}
-                                        price={item.product.price}
+                                        key={item.product.id}
+                                        product={item.product}
                                         quantity={item.quantity}
+                                        id={item.id}
+                                        removeFromCart={removeFromCart}
                                     />
                                 )
                             })}
                         </CartBody>
-                        {cartItems.length > 0 && (
+                        {cartProducts.length > 0 && (
                             <>
-                                <CartSummary subtotal={26} shipping_cost={10} />
+                                <CartSummary subtotal={10} shipping_cost={10} />
                                 <Button color='primary'>Proceed to Checkout</Button>
                             </>
-                        )} */}
+                        )}
                     </CartContainer>
                 </CartBackground>
             )}

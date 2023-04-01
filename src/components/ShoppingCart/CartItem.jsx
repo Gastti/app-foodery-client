@@ -1,12 +1,21 @@
+import { useState } from 'react';
 import styled from 'styled-components';
-import Divider from '../Divider';
 import SquareButton from '../SquareButton';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
+import CloseIcon from '@mui/icons-material/Close';
 
-export default function CartItem({ name, category, image, price, quantity, id }) {
+export default function CartItem({ id, product, quantity, removeFromCart }) {
+    const { name, image, price } = product;
+    const [removed, setRemoved] = useState(false);
+
+    const handleRemove = () => {
+        removeFromCart(id);
+        setRemoved(true);
+    }
+
     return (
-        <CartItemContainer>
+        <CartItemContainer remove={removed}>
             <div><img src={image} alt={name} /></div>
             <div><p>{name}</p></div>
             <div>
@@ -14,16 +23,23 @@ export default function CartItem({ name, category, image, price, quantity, id })
                 <span>{quantity}</span>
                 <SquareButton icon={<RemoveIcon />} />
             </div>
-            <div><p>${price}</p></div>
+            <div>
+                <p>${price}</p>
+                <SquareButton
+                    icon={<CloseIcon />}
+                    onClick={handleRemove}
+                />
+            </div>
         </CartItemContainer>
     )
 }
 
 export const CartItemContainer = styled.div`
-    display: flex;
+    display: ${props => props.remove ? 'none' : 'flex'};
     flex-direction: row;
     align-items: center;
     border-bottom: 1px solid #eaeaea;
+    position: relative;
 
     & > div {
         flex-basis: 0;
@@ -32,6 +48,14 @@ export const CartItemContainer = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
+
+        :last-child {
+            button {
+                position: absolute;
+                top: 0;
+                right: 0
+            }
+        }
 
         & > p {
             font-size: 1rem;
