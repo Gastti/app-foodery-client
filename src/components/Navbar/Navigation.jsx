@@ -1,28 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
-import { useAuth } from '../../services/auth';
+import { useAuth } from '../../hooks/useAuth';
 import Button from '../Button';
 import UserMenu from '../UserMenu';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
-import useCart from '../../hooks/useCart';
+import { useConfig } from '../../contexts/ConfigContext';
 
-export default function Navigation({ isMobile }) {
-    const { toggleCart, opened } = useCart();
-    const auth = useAuth();
-    const [isLoggedIn, setIsLoggedIn] = React.useState(false);
-
-    React.useEffect(() => {
-        setIsLoggedIn(Boolean(auth.user))
-    }, [auth.user])
+export default function Navigation({ user, isMobile }) {
+    const { handleCartState } = useConfig();
+    const { isLoggedIn } = useAuth();
 
     return (
         <StyledMenu>
-            {isLoggedIn && <a className='cart-button' onClick={toggleCart}><ShoppingCartOutlinedIcon /></a>}
+            {isLoggedIn && <a className='cart-button' onClick={handleCartState}><ShoppingCartOutlinedIcon /></a>}
             {(!isLoggedIn && !isMobile) && <Button to='/auth' color='primary'>Sign In</Button>}
-            {isLoggedIn && <UserMenu avatar={auth.user?.image} name={auth.user?.username} />}
+            {isLoggedIn && <UserMenu avatar={user?.image} name={user?.username} />}
         </StyledMenu >
     )
 }
