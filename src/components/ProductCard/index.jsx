@@ -1,9 +1,14 @@
-import React from "react";
+import React, { memo } from "react";
 import styled from "styled-components";
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import { NavLink } from 'react-router-dom';
 
-function ProductCard({ name, image, price, description }) {
-    const descSumary = description.length > 200 ? description.slice(0, 200) + '...' : description;
+
+export default function ProductCard({ product, addToCart }) {
+    const { id, name, image, price, desc } = product;
+    const descSumary = desc.length > 200 ? desc.slice(0, 200) + '...' : desc;
+    const href = `/product/${id}`;
+
     return (
         <ProductCardStyled>
             <Image>
@@ -11,8 +16,8 @@ function ProductCard({ name, image, price, description }) {
             </Image>
             <ProductBody>
                 <BodyHeader>
-                    <h3>{name}</h3>
-                    <span>{descSumary}</span>
+                    <NavLink to={href}>{name}</NavLink>
+                    <p>{descSumary}</p>
                 </BodyHeader>
                 <BodyInfo>
                     <p>
@@ -20,7 +25,7 @@ function ProductCard({ name, image, price, description }) {
                         <br />
                         <span>${price}</span>
                     </p>
-                    <button><AddShoppingCartIcon /></button>
+                    <button onClick={() => addToCart(id, 1)}><AddShoppingCartIcon /></button>
                 </BodyInfo>
             </ProductBody>
         </ProductCardStyled >
@@ -71,9 +76,14 @@ const Image = styled.div`
     }
 `
 const BodyHeader = styled.div`
-    & > h3 {
+    & > a {
         font-size: 1.5rem;
         font-weight: 500;
+        color: #222222;
+
+        :hover {
+            text-decoration: underline;
+        }
     }
 
     & > span {
@@ -118,5 +128,3 @@ const BodyInfo = styled.div`
         }
     }
 `;
-
-export { ProductCard }
