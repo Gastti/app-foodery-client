@@ -1,18 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import Container from '../../components/Container';
 import { loadProductsByName } from '../../services/products';
-import { ProductCard } from '../../components/ProductCard';
+import ProductCard from '../../components/ProductCard';
 import { ProductsContainer } from './ProductsContainer';
 import BadRequest from './BadRequest';
 import NoResults from './NoResults';
+import { useCart } from '../../hooks/useCart';
 
 export default function Searcher() {
+    const { addToCart } = useCart();
     const [products, setProducts] = useState([]);
     const [error, setError] = useState(false);
     const [findError, setFindError] = useState(false);
     const { slug } = useParams();
-    
+
+    const fetchProductsByName = useCallback(async (name) => {
+        const data = await loadProductsByName(name);
+        return data;
+    }, []);
+
     useEffect(() => {
         if (slug.length < 2) {
             setError(true);
@@ -20,7 +27,7 @@ export default function Searcher() {
         } else {
             setError(false);
             const getProducts = async () => {
-                const data = await loadProductsByName(slug);
+                const data = await fetchProductsByName(slug);
                 if (data) {
                     setProducts(data.products);
                     setFindError(false);
@@ -30,7 +37,7 @@ export default function Searcher() {
             }
             getProducts();
         }
-    }, [slug])
+    }, [slug, loadProductsByName]);
 
     return (
         <Container
@@ -49,10 +56,8 @@ export default function Searcher() {
                     {products.map((product) => (
                         <ProductCard
                             key={product.id}
-                            name={product.name}
-                            image={product.image}
-                            description={product.desc}
-                            price={product.price}
+                            product={product}
+                            addToCart={addToCart}
                         />
                     ))}
                 </ProductsContainer>
