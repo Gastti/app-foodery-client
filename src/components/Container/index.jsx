@@ -4,8 +4,7 @@ import { devices } from '../../config/devices';
 
 const StyledContainer = styled.div`
     background-color: ${props => props.primary ? '#f3f3f3' : 'transparent'};
-    display: grid;
-    place-items: center;
+
     width: 100%;
 `;
 
@@ -15,7 +14,7 @@ const StyledContent = styled.div`
     justify-content: ${props => props.justify || ''};
     align-items: ${props => props.align || ''};
     margin: 0 auto;
-    padding: ${props => props.padding ? "100px 25px" : "25px 25px"};
+    padding: ${props => props.padding ? "100px 10px" : "25px 10px"};
     box-sizing: border-box;
     position: relative;
 
