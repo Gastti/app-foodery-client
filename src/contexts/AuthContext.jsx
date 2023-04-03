@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { fetchUser } from '../services/user';
-import { login } from '../services/auth-w';
+import { login } from '../services/auth';
 import { useToken } from '../hooks/useToken';
 import { fetchCart } from '../services/cart';
 import { useConfig } from './ConfigContext';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const AuthContext = React.createContext();
 
@@ -16,17 +17,21 @@ function AuthProvider({ children }) {
     const token = getToken();
     const isLoggedIn = token ? true : false;
     const { isCartOpen } = useConfig();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const getUser = async () => {
             const user = await fetchUser(token);
-            setUser(user.data)
+
+            if (user) {
+                setUser(user.data);
+            }
         }
 
         if (token) {
             getUser();
         }
-    }, []);
+    }, [token]);
 
     useEffect(() => {
         const getCart = async () => {
@@ -49,9 +54,10 @@ function AuthProvider({ children }) {
             setLoading(true);
             const user = await login(email, password);
             setToken(user.token);
+            navigate('/welcome');
             setLoading(false);
         } catch (error) {
-            console.log('Error en signin useAuth.js', error);
+            console.log('Error en signin useAuth.js');
             setLoading(false);
             return null
         }
