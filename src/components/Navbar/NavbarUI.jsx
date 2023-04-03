@@ -11,6 +11,7 @@ const NavbarUIContainer = styled.div`
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
+    top: 0;
 `
 const NavbarUIContent = styled.div`
     flex-grow: 1;
@@ -21,7 +22,7 @@ const NavbarUIContent = styled.div`
     position: sticky;
     z-index: 10;
     background-color: #fff;
-    padding: 15px 25px;
+    padding: 15px 10px;
     height: 100px;
 `
 function NavbarUI({ children }) {
