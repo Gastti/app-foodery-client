@@ -3,11 +3,11 @@ import FormContainer from './FormContainer';
 import { Formik, Form } from 'formik'
 import CustomField from '../../components/CustomField';
 import FormButton from '../../components/FormButton';
-import { useAuth } from '../../services/auth';
+import { useAuth } from '../../hooks/useAuth';
 import Divider from '../../components/Divider';
 
 export default function SignUpForm({ handleActiveForm }) {
-    const auth = useAuth();
+    const { register, loading } = useAuth();
 
     return (
         <FormContainer>
@@ -67,7 +67,7 @@ export default function SignUpForm({ handleActiveForm }) {
                     return errors;
                 }}
                 onSubmit={(values, { resetForm }) => {
-                    auth.signup(values.first_name, values.last_name, values.username, values.email, values.password)
+                    register(values.first_name, values.last_name, values.username, values.email, values.password)
                 }}
             >
                 {({ errors, touched }) => (
@@ -107,7 +107,7 @@ export default function SignUpForm({ handleActiveForm }) {
                             color='primary'
                             size='lg'
                             align='center'
-                            disabled={auth.loading}
+                            disabled={loading}
                         >
                             Create a new account
                         </FormButton>

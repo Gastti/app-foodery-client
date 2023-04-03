@@ -2,7 +2,6 @@ import React from 'react'
 import Container from '../../components/Container'
 import { useAuth } from '../../hooks/useAuth';
 import SignInForm from './SignInForm';
-import Footer from '../../components/Footer';
 import AuthHeadboard from './AuthHeadboard';
 import SignUpForm from './SignUpForm';
 import { Navigate } from 'react-router-dom';
@@ -15,9 +14,9 @@ export default function AuthPage() {
         setActiveForm(value);
     }
 
-    // if (auth.user) {
-    //     return <Navigate to="/" />
-    // }
+    if (user) {
+        return <Navigate to="/welcome" />
+    }
 
     return (
         <>
