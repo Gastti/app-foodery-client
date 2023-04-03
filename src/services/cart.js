@@ -13,6 +13,11 @@ const fetchCart = async (token) => {
             }
         });
 
+        if (response.status === 401) {
+            console.log('Error en loadCart 401');
+            return [];
+        }
+
         if (!response.ok) {
             console.log('Error en loadCart');
             return [];
