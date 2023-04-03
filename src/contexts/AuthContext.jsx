@@ -15,7 +15,7 @@ function AuthProvider({ children }) {
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(false);
     const token = getToken();
-    const isLoggedIn = token ? true : false;
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
     const { isCartOpen } = useConfig();
     const navigate = useNavigate();
 
@@ -25,6 +25,7 @@ function AuthProvider({ children }) {
 
             if (user) {
                 setUser(user.data);
+                setIsLoggedIn(true)
             }
         }
 
