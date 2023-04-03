@@ -8,7 +8,7 @@ import DeliveryPage from './pages/DeliveryPage/DeliveryPage';
 import AuthPage from './pages/AuthPage/AuthPage';
 import WelcomePage from './pages/WelcomePage/WelcomePage';
 import Searcher from './pages/Searcher';
-import { AuthRoute } from './services/auth';
+import { AuthRoute } from './hooks/useAuth';
 import Footer from './components/Footer';
 import Product from './pages/Product';
 import ShoppingCart from './components/ShoppingCart';
