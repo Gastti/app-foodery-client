@@ -19,15 +19,26 @@ export default function WelcomePage() {
             setLoading(false);
         }
 
-        setTimeout(() => {
-            navigate('/')
+        const redirectTimer = setTimeout(() => {
+            navigate('/');
         }, 6000)
+
 
         const timer = setInterval(() => {
             setTimeLeft(prevTimeLeft => prevTimeLeft - 1);
         }, 1000);
 
-        return () => clearInterval(timer);
+        const handleNavigation = () => {
+            clearTimeout(redirectTimer);
+        }
+
+        window.addEventListener('beforeunload', handleNavigation);
+
+        return () => {
+            clearInterval(timer);
+            window.removeEventListener('beforeunload', handleNavigation);
+            clearTimeout(redirectTimer);
+        }
 
     }, [user])
 
