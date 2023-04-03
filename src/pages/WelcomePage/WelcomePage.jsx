@@ -2,20 +2,20 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import Container from '../../components/Container'
 import Footer from '../../components/Footer';
-import { useAuth } from '../../services/auth'
+import { useAuth } from '../../hooks/useAuth'
 import WelcomeContent from './WelcomeContent';
 import WelcomeTitle from './WelcomeTitle';
 import Button from '../../components/Button';
 import Divider from '../../components/Divider';
 
 export default function WelcomePage() {
-    const auth = useAuth();
+    const { user } = useAuth();
     const [loading, setLoading] = React.useState(true);
     const [timeLeft, setTimeLeft] = React.useState(5);
     const navigate = useNavigate();
 
     React.useEffect(() => {
-        if (auth.user) {
+        if (user) {
             setLoading(false);
         }
 
@@ -29,7 +29,7 @@ export default function WelcomePage() {
 
         return () => clearInterval(timer);
 
-    }, [auth.user])
+    }, [user])
 
     return (
         <>
@@ -42,7 +42,7 @@ export default function WelcomePage() {
                 align='center'
             >
                 <WelcomeContent>
-                    {(!loading && auth.user) && <WelcomeTitle>Welcome, <span>{auth.user.username}</span>!</WelcomeTitle>}
+                    {(!loading && user) && <WelcomeTitle>Welcome, <span>{user.username}</span>!</WelcomeTitle>}
                     <p>We are glad to have you with us, we hope you enjoy your ride.</p>
                     <div style={{ display: 'flex', gap: '10px', marginTop: '20px' }}>
                         <Button
