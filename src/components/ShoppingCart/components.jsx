@@ -14,13 +14,16 @@ export const CartBackground = styled.div`
 export const CartContainer = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    gap: 20px;
+    justify-content: space-between;
     flex-basis: 0;
     flex-grow: 1;
     max-width: 500px;
     background-color: #fff;
     padding: 20px;
+
+    & > :not(first-child) {
+        gap: 20px;
+    }
 `
 
 export const CartHeader = styled.div`
@@ -40,4 +43,19 @@ export const CartHeader = styled.div`
 export const CartBody = styled.div`
     max-height: calc(100vh - 300px);
     overflow-y: auto;
+
+    ::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    /* For the scrollbar handle */
+    ::-webkit-scrollbar-thumb {
+        background-color: #ccc;
+        border-radius: 5px;
+    }
+
+    /* For the scrollbar handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: #c7c7c7;
+    }
 `

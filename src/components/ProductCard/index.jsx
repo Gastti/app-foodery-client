@@ -1,12 +1,11 @@
-import React, { memo } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import { NavLink } from 'react-router-dom';
-
+import AddToCart from "../AddToCart";
 
 export default function ProductCard({ product, addToCart }) {
     const { id, name, image, price, desc } = product;
-    const descSumary = desc.length > 200 ? desc.slice(0, 200) + '...' : desc;
+    const descSumary = desc.length > 300 ? desc.slice(0, 200) + '...' : desc;
     const href = `/product/${id}`;
 
     return (
@@ -21,11 +20,9 @@ export default function ProductCard({ product, addToCart }) {
                 </BodyHeader>
                 <BodyInfo>
                     <p>
-                        PRICE
-                        <br />
                         <span>${price}</span>
                     </p>
-                    <button onClick={() => addToCart(id, 1)}><AddShoppingCartIcon /></button>
+                    <AddToCart id={id} addToCart={addToCart} />
                 </BodyInfo>
             </ProductBody>
         </ProductCardStyled >
@@ -108,7 +105,11 @@ const BodyInfo = styled.div`
         }
     }
 
-    button {
+    & > div {
+        display: flex;
+    }
+
+    & > div > button {
         padding: 5px;
         border-radius: 5px;
         border: none;

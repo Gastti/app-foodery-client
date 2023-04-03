@@ -5,17 +5,16 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import CloseIcon from '@mui/icons-material/Close';
 
-export default function CartItem({ id, product, quantity, removeFromCart }) {
-    const { name, image, price } = product;
-    const [removed, setRemoved] = useState(false);
+export default function CartItem({ item, removeFromCart }) {
+    const { name, image, price } = item.product;
+    const { id, quantity } = item;
 
     const handleRemove = () => {
         removeFromCart(id);
-        setRemoved(true);
     }
 
     return (
-        <CartItemContainer remove={removed}>
+        <CartItemContainer>
             <div><img src={image} alt={name} /></div>
             <div><p>{name}</p></div>
             <div>
@@ -35,7 +34,7 @@ export default function CartItem({ id, product, quantity, removeFromCart }) {
 }
 
 export const CartItemContainer = styled.div`
-    display: ${props => props.remove ? 'none' : 'flex'};
+    display: flex;
     flex-direction: row;
     align-items: center;
     border-bottom: 1px solid #eaeaea;

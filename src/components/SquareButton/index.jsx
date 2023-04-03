@@ -17,7 +17,7 @@ const SquareButtonContainer = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 2px;
+    padding: 6px;
     border-radius: 6px;
     border: none;
     transition: all .2s;

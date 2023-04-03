@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import AddIcon from '@mui/icons-material/Add';
 import SquareButton from "../SquareButton";
+import AddToCart from "../AddToCart";
 
 export const StyledContainer = styled.div`
     display: flex;
@@ -86,7 +87,7 @@ export const SliderItemStyled = styled.div`
 
     div:nth-child(1) {
         width: 100%;
-        height: 150px;
+        max-height: 150px;
         overflow: hidden;
 
         img {
@@ -134,7 +135,7 @@ export const SliderItemStyled = styled.div`
 
 `
 
-function SliderItem({ data }) {
+function SliderItem({ data, addToCart }) {
     return (
         <SliderItemStyled>
             <div>
@@ -144,11 +145,9 @@ function SliderItem({ data }) {
                 <h3>{data?.name}</h3>
                 <div>
                     <p>
-                        PRICE
-                        <br />
                         <span>${data?.price}</span>
                     </p>
-                    <SquareButton primary icon={<AddIcon />} />
+                    <AddToCart id={data?.id} addToCart={addToCart} />
                 </div>
             </div>
         </SliderItemStyled >

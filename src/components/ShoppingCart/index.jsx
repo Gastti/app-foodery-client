@@ -13,7 +13,27 @@ export default function ShoppingCart() {
     const { removeFromCart } = useCart();
     const { handleCartState } = useConfig();
     const { cart } = useAuth();
-    const cartProducts = cart ? cart.items : [];
+    const [cartProducts, setCartProducts] = useState([]);
+    const [subtotal, setSubtotal] = useState(0);
+
+    useEffect(() => {
+        if (cart) {
+            setCartProducts(cart.items);
+        }
+    }, [cart])
+
+    useEffect(() => {
+        let calculateSubtotal = cartProducts.reduce((acc, item) => {
+            return acc + (item.product.price * item.quantity);
+        }, 0);
+
+        setSubtotal(Number(calculateSubtotal.toFixed(2)));
+    }, [cartProducts])
+
+    const handleRemove = (id) => {
+        removeFromCart(id);
+        setCartProducts(cartProducts.filter((item) => item.id !== id));
+    }
 
     const handleCartContainerClick = (e) => {
         e.stopPropagation();
@@ -24,29 +44,29 @@ export default function ShoppingCart() {
             {(
                 <CartBackground onClick={handleCartState}>
                     <CartContainer onClick={handleCartContainerClick}>
-                        <CartHeader>
-                            <h2>Order</h2>
-                            <SquareButton icon={<CloseIcon />} onClick={handleCartState} size='2rem' />
-                        </CartHeader>
-                        <CartBody>
-                            {cartProducts.length === 0 && <p>Your shopping cart is empty.</p>}
-                            {cartProducts.length > 0 && cartProducts.map((item) => {
-                                return (
-                                    <CartItem
-                                        key={item.product.id}
-                                        product={item.product}
-                                        quantity={item.quantity}
-                                        id={item.id}
-                                        removeFromCart={removeFromCart}
-                                    />
-                                )
-                            })}
-                        </CartBody>
+                        <div>
+                            <CartHeader>
+                                <h2>Order</h2>
+                                <SquareButton icon={<CloseIcon />} onClick={handleCartState} size='2rem' />
+                            </CartHeader>
+                            <CartBody>
+                                {cartProducts.length === 0 && <p>Your shopping cart is empty.</p>}
+                                {cartProducts.length > 0 && cartProducts.map((item) => {
+                                    return (
+                                        <CartItem
+                                            key={item.product.id}
+                                            item={item}
+                                            removeFromCart={handleRemove}
+                                        />
+                                    )
+                                })}
+                            </CartBody>
+                        </div>
                         {cartProducts.length > 0 && (
-                            <>
-                                <CartSummary subtotal={10} shipping_cost={10} />
+                            <div>
+                                <CartSummary subtotal={subtotal} shipping_cost={5} />
                                 <Button color='primary'>Proceed to Checkout</Button>
-                            </>
+                            </div>
                         )}
                     </CartContainer>
                 </CartBackground>

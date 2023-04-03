@@ -2,10 +2,12 @@ import React, { useEffect } from 'react';
 import { SliderBody, SliderHeader, SliderItem, StyledContainer } from './components';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import { useCart } from '../../hooks/useCart';
 
 export default function Slider({ title, items }) {
     const [min, setMin] = React.useState(0);
     const [itemsToShow, setItemsToShow] = React.useState(4);
+    const { addToCart } = useCart();
 
     useEffect(() => {
         const handleResize = () => {
@@ -59,7 +61,13 @@ export default function Slider({ title, items }) {
             </SliderHeader>
             <SliderBody>
                 {items?.slice(min, min + itemsToShow)
-                    .map(item => <SliderItem key={item.name} data={item} />)
+                    .map(item => (
+                        <SliderItem
+                            key={item.name}
+                            data={item}
+                            addToCart={addToCart}
+                        />
+                    ))
                 }
             </SliderBody>
             <div className='popular-foods-navigation popular-foods-navigation-mobile'>
