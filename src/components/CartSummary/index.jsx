@@ -24,6 +24,8 @@ export default function CartSummary({ subtotal, shipping_cost }) {
 }
 
 const CartSummaryContainer = styled.div`
+    margin: 20px 0px;
+    
     & > p {
         display: flex;
         justify-content: space-between;

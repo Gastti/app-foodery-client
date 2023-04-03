@@ -43,36 +43,34 @@ export default function WelcomePage() {
     }, [user])
 
     return (
-        <>
-            <Container
-                padding
-                primary
-                style={{ height: 'calc(100vh - 228.39px)' }}
-                flex='row'
-                justify='center'
-                align='center'
-            >
-                <WelcomeContent>
-                    {(!loading && user) && <WelcomeTitle>Welcome, <span>{user.username}</span>!</WelcomeTitle>}
-                    <p>We are glad to have you with us, we hope you enjoy your ride.</p>
-                    <div style={{ display: 'flex', gap: '10px', marginTop: '20px' }}>
-                        <Button
-                            color='primary'
-                            to='/order'
-                        >
-                            Make an Order
-                        </Button>
-                        <Button
-                            to='/'
-                        >
-                            Go Home
-                        </Button>
-                    </div>
-                    <Divider />
-                    <p>You will be redirected in <span>{timeLeft}</span> seconds</p>
-                </WelcomeContent>
-            </Container>
-            <Footer />
-        </>
+        <Container
+            padding
+            primary
+            style={{ height: 'calc(100vh - 228.39px)' }}
+            flex='row'
+            justify='center'
+            align='center'
+        >
+            <WelcomeContent>
+                {(!loading && user) && <WelcomeTitle>Welcome, <span>{user.username}</span>!</WelcomeTitle>}
+                <p>We are glad to have you with us, we hope you enjoy your ride.</p>
+                <div style={{ display: 'flex', gap: '10px', marginTop: '20px' }}>
+                    <Button
+                        color='primary'
+                        to='/order'
+                    >
+                        Make an Order
+                    </Button>
+                    <Button
+                        to='/'
+                    >
+                        Go Home
+                    </Button>
+                </div>
+                <Divider />
+                <p>You will be redirected in <span>{timeLeft}</span> seconds</p>
+            </WelcomeContent>
+        </Container>
+
     )
 }
